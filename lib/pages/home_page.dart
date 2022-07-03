@@ -9,7 +9,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: AlignmentDirectional.center,
-      child: Text('감사나무'),
+      child: Image.asset('assets/tree.jpg'),
     );
   }
 }

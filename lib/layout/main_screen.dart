@@ -26,6 +26,10 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: Image.asset(
+          'assets/logo.png',
+          height: 32,
+        ),
         title: Text('감사나무'),
         actions: [
           IconButton(onPressed: () {}, icon: Icon(Icons.notifications)),

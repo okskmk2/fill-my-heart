@@ -9,7 +9,7 @@ class MapPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: AlignmentDirectional.center,
-      child: Text('지도'),
+      child: Image.asset('assets/map.jpg'),
     );
   }
 }
