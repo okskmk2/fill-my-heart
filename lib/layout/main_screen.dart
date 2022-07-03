@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:thank_tree/pages/history_page.dart';
 import 'package:thank_tree/pages/home_page.dart';
 import 'package:thank_tree/pages/map_page.dart';
 import 'package:thank_tree/pages/rank_page.dart';
 import 'package:thank_tree/pages/send_page.dart';
+import 'package:thank_tree/services/auth_service.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -26,10 +28,7 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Image.asset(
-          'assets/logo.png',
-          height: 32,
-        ),
+        leading: Image.asset('assets/logo.png'),
         title: Text('감사나무'),
         actions: [
           IconButton(onPressed: () {}, icon: Icon(Icons.notifications)),
@@ -67,7 +66,7 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ],
       ),
-      body: _widgetOptions.elementAt(_selectedIndex),
+      body: SafeArea(child: _widgetOptions.elementAt(_selectedIndex)),
     );
   }
 }
