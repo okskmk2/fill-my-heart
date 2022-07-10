@@ -21,11 +21,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("main.dart build");
     final user = context.read<AuthService>().currentUser();
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      // home: user == null ? LoginPage() : MainScreen(),
-      home: MainScreen(),
+      home: user == null ? LoginPage() : MainScreen(),
+      // home: MainScreen(),
     );
   }
 }
