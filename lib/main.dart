@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
     print("main.dart build");
     final user = context.read<AuthService>().currentUser();
     return MaterialApp(
+      theme: ThemeData(fontFamily: 'SpoqaHanSansNeo'),
       debugShowCheckedModeBanner: false,
       home: user == null ? LoginPage() : MainScreen(),
       // home: MainScreen(),
