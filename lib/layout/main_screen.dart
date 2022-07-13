@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:thank_tree/pages/history_page.dart';
 import 'package:thank_tree/pages/home_page.dart';
@@ -26,18 +27,22 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Color inactiveColor = Color(0xffC0C3CA);
     return Scaffold(
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterDocked,
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.black,
         onPressed: () {
           setState(() {
             _selectedIndex = 2;
           });
         },
-        child: Image.asset('assets/icons/card_edit.png'),
+        child: SvgPicture.asset('assets/icons/card_edit.svg'),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.black,
+        unselectedItemColor: inactiveColor,
         type: BottomNavigationBarType.fixed,
         currentIndex: _selectedIndex,
         onTap: (index) {
@@ -48,23 +53,42 @@ class _MainScreenState extends State<MainScreen> {
         items: [
           BottomNavigationBarItem(
             label: '홈',
-            icon: Image.asset('assets/icons/home.png'),
+            icon: SvgPicture.asset(
+              'assets/icons/home.svg',
+              color: inactiveColor,
+            ),
+            activeIcon: SvgPicture.asset('assets/icons/home.svg'),
           ),
           BottomNavigationBarItem(
             label: '감사카드',
-            icon: Image.asset('assets/icons/card.png'),
+            icon: SvgPicture.asset(
+              'assets/icons/card.svg',
+              color: inactiveColor,
+            ),
+            activeIcon: SvgPicture.asset(
+              'assets/icons/card.svg',
+              color: Colors.black,
+            ),
           ),
           BottomNavigationBarItem(
             label: '감사카드 작성',
-            icon: Image.asset('assets/icons/card_edit.png'),
+            icon: SvgPicture.asset('assets/icons/card_edit.svg'),
           ),
           BottomNavigationBarItem(
             label: '내 친구들',
-            icon: Image.asset('assets/icons/myfriend.png'),
+            icon: SvgPicture.asset(
+              'assets/icons/myfriend.svg',
+              color: inactiveColor,
+            ),
+            activeIcon: SvgPicture.asset('assets/icons/myfriend.svg'),
           ),
           BottomNavigationBarItem(
             label: 'MY',
-            icon: Image.asset('assets/icons/my.png'),
+            icon: SvgPicture.asset(
+              'assets/icons/my.svg',
+              color: inactiveColor,
+            ),
+            activeIcon: SvgPicture.asset('assets/icons/my.svg'),
           ),
         ],
       ),

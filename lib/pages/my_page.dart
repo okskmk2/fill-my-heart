@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class MyPage extends StatelessWidget {
   // constructor
@@ -9,7 +10,7 @@ class MyPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: AlignmentDirectional.center,
-      child: Image.asset('assets/icons/card.png'),
+      child: Text("마이페이지"),
     );
   }
 }
