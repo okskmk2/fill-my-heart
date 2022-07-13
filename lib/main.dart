@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(fontFamily: 'SpoqaHanSansNeo'),
       debugShowCheckedModeBanner: false,
-      home: user == null ? LoginPage() : MainScreen(),
+      home: MainScreen(),
       // home: MainScreen(),
     );
   }
