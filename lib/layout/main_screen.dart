@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:thank_tree/pages/history_page.dart';
 import 'package:thank_tree/pages/home_page.dart';
-import 'package:thank_tree/pages/map_page.dart';
-import 'package:thank_tree/pages/rank_page.dart';
+import 'package:thank_tree/pages/my_page.dart';
+import 'package:thank_tree/pages/friend_page.dart';
 import 'package:thank_tree/pages/send_page.dart';
 import 'package:thank_tree/services/auth_service.dart';
 
@@ -20,21 +20,13 @@ class _MainScreenState extends State<MainScreen> {
     HomePage(),
     HistoryPage(),
     SendPage(),
-    RankPage(),
-    MapPage()
+    FriendPage(),
+    MyPage()
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: Image.asset('assets/logo.png'),
-        title: Text('감사나무'),
-        actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.notifications)),
-          IconButton(onPressed: () {}, icon: Icon(Icons.account_circle)),
-        ],
-      ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: _selectedIndex,
@@ -46,23 +38,23 @@ class _MainScreenState extends State<MainScreen> {
         items: [
           BottomNavigationBarItem(
             label: '나무',
-            icon: Icon(Icons.forest),
+            icon: Icon(Icons.home),
           ),
           BottomNavigationBarItem(
-            label: '이력',
-            icon: Icon(Icons.archive),
+            label: '감사카드',
+            icon: Icon(Icons.message),
           ),
           BottomNavigationBarItem(
-            label: '감사보내기',
-            icon: Icon(Icons.send),
+            label: '감사카드 작성',
+            icon: Icon(Icons.edit),
           ),
           BottomNavigationBarItem(
-            label: '랭킹',
-            icon: Icon(Icons.format_list_numbered),
+            label: '내 친구들',
+            icon: Icon(Icons.search_rounded),
           ),
           BottomNavigationBarItem(
-            label: '지도',
-            icon: Icon(Icons.map),
+            label: 'MY',
+            icon: Icon(Icons.account_circle),
           ),
         ],
       ),

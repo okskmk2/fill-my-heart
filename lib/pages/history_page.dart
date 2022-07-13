@@ -9,7 +9,7 @@ class HistoryPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: AlignmentDirectional.center,
-      child: Text('감사이력'),
+      child: Text('감사카드'),
     );
   }
 }
