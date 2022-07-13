@@ -80,7 +80,10 @@ class _MainScreenState extends State<MainScreen> {
               'assets/icons/myfriend.svg',
               color: inactiveColor,
             ),
-            activeIcon: SvgPicture.asset('assets/icons/myfriend.svg'),
+            activeIcon: SvgPicture.asset(
+              'assets/icons/myfriend.svg',
+              color: Colors.black,
+            ),
           ),
           BottomNavigationBarItem(
             label: 'MY',
@@ -88,7 +91,10 @@ class _MainScreenState extends State<MainScreen> {
               'assets/icons/my.svg',
               color: inactiveColor,
             ),
-            activeIcon: SvgPicture.asset('assets/icons/my.svg'),
+            activeIcon: SvgPicture.asset(
+              'assets/icons/my.svg',
+              color: Colors.black,
+            ),
           ),
         ],
       ),
