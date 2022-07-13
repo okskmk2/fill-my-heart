@@ -27,6 +27,16 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButtonLocation:
+          FloatingActionButtonLocation.miniCenterDocked,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            _selectedIndex = 2;
+          });
+        },
+        child: Image.asset('assets/icons/card_edit.png'),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: _selectedIndex,
@@ -37,24 +47,24 @@ class _MainScreenState extends State<MainScreen> {
         },
         items: [
           BottomNavigationBarItem(
-            label: '나무',
-            icon: Icon(Icons.home),
+            label: '홈',
+            icon: Image.asset('assets/icons/home.png'),
           ),
           BottomNavigationBarItem(
             label: '감사카드',
-            icon: Icon(Icons.message),
+            icon: Image.asset('assets/icons/card.png'),
           ),
           BottomNavigationBarItem(
             label: '감사카드 작성',
-            icon: Icon(Icons.edit),
+            icon: Image.asset('assets/icons/card_edit.png'),
           ),
           BottomNavigationBarItem(
             label: '내 친구들',
-            icon: Icon(Icons.search_rounded),
+            icon: Image.asset('assets/icons/myfriend.png'),
           ),
           BottomNavigationBarItem(
             label: 'MY',
-            icon: Icon(Icons.account_circle),
+            icon: Image.asset('assets/icons/my.png'),
           ),
         ],
       ),

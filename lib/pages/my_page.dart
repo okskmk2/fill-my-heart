@@ -9,7 +9,7 @@ class MyPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: AlignmentDirectional.center,
-      child: Image.asset('assets/icons/새싹이미지.png'),
+      child: Image.asset('assets/icons/card.png'),
     );
   }
 }
