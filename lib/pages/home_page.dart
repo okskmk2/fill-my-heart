@@ -29,7 +29,7 @@ class HomePage extends StatelessWidget {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(left: 280),
+              margin: EdgeInsets.only(left: 260),
               child: ElevatedButton(
                 onPressed: () {},
                 style: ButtonStyle(
