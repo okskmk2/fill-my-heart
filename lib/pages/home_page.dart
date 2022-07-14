@@ -15,11 +15,11 @@ class HomePage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.c,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text("감사나무"),
             Container(
-              width: 210,
+              width: double.infinity,
               height: 100,
               margin: EdgeInsets.only(top: 40, bottom: 10, left: 10),
               child: Text(
@@ -39,9 +39,10 @@ class HomePage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8),
               child: Image.asset(
-                'assets/icons/새싹이미지.png',
+                'assets/seed.png',
+                width: double.infinity,
                 height: 300,
-                fit: BoxFit.cover,
+                fit: BoxFit.fitHeight,
               ),
             )
           ],
