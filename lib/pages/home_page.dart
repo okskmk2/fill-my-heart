@@ -31,6 +31,11 @@ class HomePage extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {},
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(
+                  Color(0xff0ACC86),
+                ),
+              ),
               child: Text(
                 '확인하기',
                 style: TextStyle(fontSize: 16),
