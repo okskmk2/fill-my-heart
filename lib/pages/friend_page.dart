@@ -10,30 +10,8 @@ class FriendPage extends StatelessWidget {
   Widget build(BuildContext context) {
     // 데이터
     List<Map<String, dynamic>> dataList = [
-      {
-        "category": "친구1",
-        "imgUrl": "",
-      },
-      {
-        "category": "친구2",
-        "imgUrl": "",
-      },
-      {
-        "category": "친구3",
-        "imgUrl": "",
-      },
-      {
-        "category": "친구4",
-        "imgUrl": "",
-      },
-      {
-        "category": "친구5",
-        "imgUrl": "",
-      },
-      {
-        "category": "친구6",
-        "imgUrl": "",
-      },
+      {"category": "동그라미", "imgUrl": "", "email": "abcd1234@naver.com"},
+      {"category": "잔망루피", "imgUrl": "", "email": "abcd5678@naver.com"},
     ];
 
     // 화면에 보이는 영역
@@ -115,38 +93,90 @@ class FriendPage extends StatelessWidget {
 
                 // 카드 형태의 위젯
                 return Card(
-                  margin: const EdgeInsets.all(8),
-                  // 위젯들을 위로 중첩하기 위해 Stack 위젯 사용
-                  child: Stack(
-                    alignment: Alignment.center, // 중앙 정렬
-                    children: [
-                      /// 배경 이미지
-                      Image.network(
-                        imgUrl,
-                        width: double.infinity, // 가득 채우기
-                        height: 120,
-                        fit: BoxFit
-                            .cover, // 이미지 비율을 유지하며 주어진 width와 height를 가득 채우기
-                      ),
+                  elevation: 50,
+                  shadowColor: Colors.black,
+                  color: Color.fromARGB(255, 255, 255, 255),
+                  child: SizedBox(
+                    width: 300,
+                    height: 250,
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Column(
+                        children: [
+                          CircleAvatar(
+                            backgroundColor: Colors.green[500],
+                            radius: 30,
+                            child: const CircleAvatar(
+                              backgroundImage: NetworkImage(
+                                  "https://www.crushpixel.com/big-static19/preview4/pink-donut-icon-isometric-style-3400525.jpg"), //NetworkImage
+                              radius: 30,
+                            ), //CircleAvatar
+                          ), //CircleAvatar
+                          const SizedBox(
+                            height: 10,
+                          ), //SizedBox
+                          Text(
+                            '동그라미',
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Color.fromARGB(255, 0, 0, 0),
+                              fontWeight: FontWeight.w500,
+                            ), //Textstyle
+                          ), //Text
+                          const SizedBox(
+                            height: 10,
+                          ), //SizedBox
+                          const Text(
+                            'abcd1234@naver.com',
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Color.fromARGB(255, 0, 0, 0),
+                            ), //Textstyle
+                          ), //Text
+                          const SizedBox(
+                            height: 10,
+                          ), //SizedBox
+                          SizedBox(
+                            width: 300,
 
-                      /// 배경 위에 글씨가 보이도록 반투명한 박스 추가
-                      Container(
-                        width: double.infinity,
-                        height: 120,
-                        color: Colors.black.withOpacity(0.5), // 투명도 50%
-                      ),
+                            child: ElevatedButton(
+                              onPressed: () => 'Null',
+                              style: ButtonStyle(
+                                  backgroundColor: MaterialStateProperty.all(
+                                      Color(0xff0ACC86))),
+                              child: Padding(
+                                padding: const EdgeInsets.all(4),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: const [
+                                    Icon(Icons.touch_app),
+                                    Text('감사카드 쓰기')
+                                  ],
+                                ),
+                              ),
+                            ),
+                            // RaisedButton is deprecated and should not be used
+                            // Use ElevatedButton instead
 
-                      /// 카테고리
-                      Text(
-                        category,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 36,
-                        ),
-                      ),
-                    ],
-                  ),
-                );
+                            // child: RaisedButton(
+                            //   onPressed: () => null,
+                            //   color: Colors.green,
+                            //   child: Padding(
+                            //     padding: const EdgeInsets.all(4.0),
+                            //     child: Row(
+                            //       children: const [
+                            //         Icon(Icons.touch_app),
+                            //         Text('Visit'),
+                            //       ],
+                            //     ), //Row
+                            //   ), //Padding
+                            // ), //RaisedButton
+                          ) //SizedBox
+                        ],
+                      ), //Column
+                    ), //Padding
+                  ), //SizedBox
+                ); //Ca
               },
             ),
           ),
