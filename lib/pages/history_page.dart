@@ -40,12 +40,22 @@ class _HistoryPageState extends State<HistoryPage>
         home: Scaffold(
           appBar: AppBar(
             backgroundColor: Colors.white,
-            title: const Text('감사 카드',
+            // leading: IconButton(
+            //   icon: Icon(CupertinoIcons.camera, color: Colors.black),
+            //     onPressed: () {},
+            //   ),
+            //  actions: [
+            //     IconButton(
+            //        icon: Icon(CupertinoIcons.paperplane, color: Colors.black),
+            //           onPressed: () {},
+            //       )
+            //   ],
+            title: Text('감사 카드',
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 20,
                     fontWeight: FontWeight.bold)),
-            centerTitle: true,
+            centerTitle: false,
             elevation: 0,
             bottom: TabBar(controller: controller, tabs: [
               Tab(
