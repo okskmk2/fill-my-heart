@@ -15,33 +15,41 @@ class HomePage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.c,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("감사나무"),
             Container(
-              width: 210,
+              width: double.infinity,
               height: 100,
-              margin: EdgeInsets.only(top: 40, bottom: 10, left: 10),
+              margin: EdgeInsets.only(top: 40, left: 10),
               child: Text(
                 softWrap: true,
                 textAlign: TextAlign.left,
-                "홍길동님에게 새로운 감사인사가 전달됐어요!",
+                "홍길동님에게 \n새로운 감사인사가\n전달됐어요!",
                 style: TextStyle(fontSize: 27, fontWeight: FontWeight.bold),
               ),
             ),
-            ElevatedButton(
-              onPressed: () {},
-              child: Text(
-                '확인하기',
-                style: TextStyle(fontSize: 16),
+            Container(
+              margin: EdgeInsets.only(left: 260),
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(
+                    Color(0xff0ACC86),
+                  ),
+                ),
+                child: Text(
+                  '확인하기',
+                  style: TextStyle(fontSize: 16),
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(8),
               child: Image.asset(
-                'assets/icons/새싹이미지.png',
+                'assets/seed.png',
+                width: double.infinity,
                 height: 300,
-                fit: BoxFit.cover,
+                fit: BoxFit.fitHeight,
               ),
             )
           ],
