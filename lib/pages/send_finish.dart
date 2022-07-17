@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:thank_tree/layout/main_screen.dart';
 import 'package:thank_tree/pages/history_page.dart';
 
 class Sendfinish extends StatefulWidget {
@@ -88,7 +89,8 @@ class _SendfinishState extends State<Sendfinish> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => HistoryPage()),
+                              builder: (context) =>
+                                  MainScreen(selectedIndex: 1)),
                         );
                       },
                       style: ButtonStyle(
