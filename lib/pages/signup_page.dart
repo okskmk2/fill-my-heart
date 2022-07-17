@@ -25,18 +25,14 @@ class _SignUpPageState extends State<SignUpPage> {
         appBar: AppBar(),
         body: SafeArea(
           child: SingleChildScrollView(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.all(24),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 /// 현재 유저 로그인 상태
-                Center(
-                  child: Text(
-                    "회원가입",
-                    style: TextStyle(
-                      fontSize: 24,
-                    ),
-                  ),
+                Text(
+                  "회원가입",
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 32),
 

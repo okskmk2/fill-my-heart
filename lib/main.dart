@@ -32,10 +32,15 @@ class MyApp extends StatelessWidget {
             fontFamily: 'SpoqaHanSansNeo',
             elevatedButtonTheme: ElevatedButtonThemeData(
                 style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(
-                Color(0xff0ACC86),
-              ),
-            )),
+                    textStyle: MaterialStateProperty.all(
+                        TextStyle(fontWeight: FontWeight.bold)),
+                    backgroundColor: MaterialStateProperty.all(
+                      Color(0xff0ACC86),
+                    ),
+                    shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12))),
+                    minimumSize:
+                        MaterialStateProperty.all(Size(double.infinity, 56)))),
             appBarTheme: AppBarTheme(
                 elevation: 0,
                 color: Colors.white,

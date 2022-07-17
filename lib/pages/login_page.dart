@@ -24,7 +24,7 @@ class _LoginPageState extends State<LoginPage> {
         appBar: AppBar(),
         body: SafeArea(
           child: SingleChildScrollView(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.all(24),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
