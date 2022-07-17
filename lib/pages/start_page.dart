@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:thank_tree/pages/login_page.dart';
 import 'package:thank_tree/pages/signup_page.dart';
 
@@ -14,7 +12,7 @@ class StartPage extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding:
-              const EdgeInsets.only(top: 100, right: 20, left: 20, bottom: 30),
+              const EdgeInsets.only(top: 100, right: 20, left: 20, bottom: 40),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -31,16 +31,32 @@ class MyApp extends StatelessWidget {
             primaryColor: Color(0xff0ACC86),
             fontFamily: 'SpoqaHanSansNeo',
             elevatedButtonTheme: ElevatedButtonThemeData(
-                style: ButtonStyle(
-                    textStyle: MaterialStateProperty.all(
-                        TextStyle(fontWeight: FontWeight.bold)),
-                    backgroundColor: MaterialStateProperty.all(
-                      Color(0xff0ACC86),
-                    ),
-                    shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12))),
-                    minimumSize:
-                        MaterialStateProperty.all(Size(double.infinity, 56)))),
+              style: ButtonStyle(
+                textStyle: MaterialStateProperty.all(
+                    TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+                backgroundColor: MaterialStateProperty.all(
+                  Color(0xff0ACC86),
+                ),
+                shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12))),
+                minimumSize:
+                    MaterialStateProperty.all(Size(double.infinity, 56)),
+              ),
+            ),
+            inputDecorationTheme: InputDecorationTheme(
+              enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Colors.white,
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(10.0))),
+              focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Colors.white,
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(10.0))),
+              filled: true,
+              hintStyle: TextStyle(color: Color(0xffA3A9B4)),
+            ),
             appBarTheme: AppBarTheme(
                 elevation: 0,
                 color: Colors.white,

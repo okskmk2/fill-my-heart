@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:thank_tree/layout/main_screen.dart';
-import 'package:thank_tree/pages/home_page.dart';
 import 'package:thank_tree/services/auth_service.dart';
 
 /// 로그인 페이지
@@ -35,24 +33,57 @@ class _SignUpPageState extends State<SignUpPage> {
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 32),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: Text(
+                    '아이디',
+                    style: TextStyle(
+                      color: Color(0xff747474),
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
 
                 /// 이메일
                 TextField(
                   controller: emailController,
-                  decoration: InputDecoration(hintText: "이메일"),
+                  decoration: InputDecoration(
+                    hintText: "아이디를 입력해주세요",
+                  ),
+                ),
+                SizedBox(
+                  height: 24,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: Text(
+                    '비밀번호',
+                    style: TextStyle(
+                      color: Color(0xff747474),
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
                 ),
 
                 /// 비밀번호
                 TextField(
                   controller: passwordController,
                   obscureText: true, // 비밀번호 안보이게
-                  decoration: InputDecoration(hintText: "비밀번호"),
+                  decoration: InputDecoration(
+                    hintText: "비밀번호를 입력해주세요",
+                  ),
                 ),
-
+                SizedBox(
+                  height: 8,
+                ),
                 TextField(
                   controller: passwordConfirmController,
                   obscureText: true, // 비밀번호 안보이게
-                  decoration: InputDecoration(hintText: "비밀번호"),
+                  decoration: InputDecoration(
+                    hintText: "비밀번호를 확인해주세요",
+                  ),
                 ),
                 SizedBox(height: 32),
 
