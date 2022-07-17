@@ -9,7 +9,8 @@ import 'package:thank_tree/pages/send_page.dart';
 import 'package:thank_tree/services/auth_service.dart';
 
 class MainScreen extends StatefulWidget {
-  const MainScreen({Key? key}) : super(key: key);
+  final int selectedIndex;
+  const MainScreen({Key? key, this.selectedIndex = 0}) : super(key: key);
 
   @override
   State<MainScreen> createState() => _MainScreenState();

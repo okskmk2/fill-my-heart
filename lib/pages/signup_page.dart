@@ -5,16 +5,17 @@ import 'package:thank_tree/pages/home_page.dart';
 import 'package:thank_tree/services/auth_service.dart';
 
 /// 로그인 페이지
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class SignUpPage extends StatefulWidget {
+  const SignUpPage({Key? key}) : super(key: key);
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<SignUpPage> createState() => _SignUpPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SignUpPageState extends State<SignUpPage> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController passwordConfirmController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -29,51 +30,48 @@ class _LoginPageState extends State<LoginPage> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 /// 현재 유저 로그인 상태
-                Text(
-                  "로그인",
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                Center(
+                  child: Text(
+                    "회원가입",
+                    style: TextStyle(
+                      fontSize: 24,
+                    ),
+                  ),
                 ),
-
                 SizedBox(height: 32),
 
                 /// 이메일
                 TextField(
                   controller: emailController,
-                  decoration: InputDecoration(hintText: "아이디를 입력해주세요."),
+                  decoration: InputDecoration(hintText: "이메일"),
                 ),
 
                 /// 비밀번호
                 TextField(
                   controller: passwordController,
                   obscureText: true, // 비밀번호 안보이게
-                  decoration: InputDecoration(hintText: "비밀번호를 입력해주세요"),
+                  decoration: InputDecoration(hintText: "비밀번호"),
+                ),
+
+                TextField(
+                  controller: passwordConfirmController,
+                  obscureText: true, // 비밀번호 안보이게
+                  decoration: InputDecoration(hintText: "비밀번호"),
                 ),
                 SizedBox(height: 32),
 
-                /// 로그인 버튼
+                /// 회원가입 버튼
                 ElevatedButton(
-                  style: ButtonStyle(
-                    minimumSize:
-                        MaterialStateProperty.all(Size(double.infinity, 56)),
-                  ),
-                  child: Text("로그인",
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                  child: Text("확인", style: TextStyle(fontSize: 21)),
                   onPressed: () {
-                    authService.signIn(
+                    // 회원가입
+                    authService.signUp(
                       email: emailController.text,
                       password: passwordController.text,
                       onSuccess: () {
                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                          content: Text("로그인 성공"),
+                          content: Text("회원가입에 성공하였습니다."),
                         ));
-                        // HomePage로 이동
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  MainScreen(selectedIndex: 0)),
-                        );
                       },
                       onError: (errMsg) {
                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
