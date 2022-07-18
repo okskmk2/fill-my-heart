@@ -3,12 +3,16 @@ import 'package:flutter/material.dart';
 class CustomStyles {
   static Color primaryColor = Color(0xff2C8464);
   static ButtonStyle smallButtonStyle = ButtonStyle(
-    minimumSize: MaterialStateProperty.all(Size(double.infinity, 42)),
+    padding: MaterialStateProperty.all(
+      EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+    ),
+    shape: MaterialStateProperty.all(
+        RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
   );
   static ThemeData customTheme = ThemeData(
     scaffoldBackgroundColor: Colors.white,
     primaryColor: CustomStyles.primaryColor,
-    fontFamily: 'SpoqaHanSansNeo',
+    fontFamily: 'NanumSquareRound',
     cardTheme: CardTheme(
         elevation: 0,
         shape: RoundedRectangleBorder(
@@ -17,17 +21,17 @@ class CustomStyles {
         )),
     textTheme: TextTheme(
       headline1: TextStyle(
-        color: Color(0xff303030),
-        fontSize: 27,
-        fontWeight: FontWeight.bold,
+        color: Color(0xff000000),
+        fontSize: 25,
+        fontWeight: FontWeight.w900,
       ),
       headline2: TextStyle(
-        color: Color(0xff303030),
+        color: Color(0xff000000),
         fontSize: 24,
         fontWeight: FontWeight.bold,
       ),
       headline3: TextStyle(
-        color: Color(0xff303030),
+        color: Color(0xff000000),
         fontSize: 20,
         fontWeight: FontWeight.bold,
       ),
@@ -50,7 +54,7 @@ class CustomStyles {
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
         padding: MaterialStateProperty.all(
-          EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+          EdgeInsets.symmetric(vertical: 12, horizontal: 17),
         ),
         textStyle: MaterialStateProperty.all(
             TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),

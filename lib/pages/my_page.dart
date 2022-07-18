@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:thank_tree/common/styles.dart';
 
 class MyPage extends StatelessWidget {
   // constructor
@@ -115,6 +116,7 @@ class MyPage extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {},
+                  style: CustomStyles.smallButtonStyle,
                   child: Text(
                     '감사카드 보내기',
                   ),

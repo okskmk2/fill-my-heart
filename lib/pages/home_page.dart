@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:thank_tree/common/styles.dart';
 
 class HomePage extends StatelessWidget {
   // constructor
@@ -32,6 +33,7 @@ class HomePage extends StatelessWidget {
               margin: EdgeInsets.only(left: 260),
               child: ElevatedButton(
                 onPressed: () {},
+                style: CustomStyles.smallButtonStyle,
                 child: Text('확인하기'),
               ),
             ),

@@ -7,7 +7,6 @@ class StartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextStyle textStyle = TextStyle(fontSize: 18, fontWeight: FontWeight.bold);
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -20,12 +19,13 @@ class StartPage extends StatelessWidget {
               Text(
                 '감사나무를\n시작해보세요!',
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.w900),
               ),
               Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   ElevatedButton(
-                      child: Text('회원가입', style: textStyle),
+                      child: Text('회원가입'),
                       onPressed: () {
                         Navigator.push(
                           context,
@@ -36,7 +36,7 @@ class StartPage extends StatelessWidget {
                     height: 8,
                   ),
                   ElevatedButton(
-                      child: Text('로그인', style: textStyle),
+                      child: Text('로그인'),
                       onPressed: () {
                         Navigator.push(
                           context,

@@ -63,16 +63,15 @@ dev_dependencies:
 # The following section is specific to Flutter packages.
 flutter:
   fonts:
-  - family: SpoqaHanSansNeo
+  - family: NanumSquareRound
     fonts:
-      - asset: fonts/SpoqaHanSansNeo-Regular.otf
-      - asset: fonts/SpoqaHanSansNeo-Light.otf
+      - asset: fonts/NanumSquareRoundOTFL.otf
         weight: 300
-      - asset: fonts/SpoqaHanSansNeo-Thin.otf
-        weight: 200
-      - asset: fonts/SpoqaHanSansNeo-Medium.otf
+      - asset: fonts/NanumSquareRoundOTFR.otf
+        weight: 400
+      - asset: fonts/NanumSquareRoundOTFB.otf
         weight: 500
-      - asset: fonts/SpoqaHanSansNeo-Bold.otf
+      - asset: fonts/NanumSquareRoundOTFEB.otf
         weight: 600
 
   # The following line ensures that the Material Icons font is
