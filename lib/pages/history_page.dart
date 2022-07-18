@@ -40,7 +40,7 @@ class _HistoryPageState extends State<HistoryPage>
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("감사카드", style: Theme.of(context).textTheme.headline2),
+            Text("감사카드", style: Theme.of(context).textTheme.headline3),
             SizedBox(
               height: 24,
             ),

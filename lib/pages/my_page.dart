@@ -20,7 +20,7 @@ class MyPage extends StatelessWidget {
         children: [
           Text(
             "내 정보",
-            style: Theme.of(context).textTheme.headline2,
+            style: Theme.of(context).textTheme.headline3,
           ),
           Container(
             width: double.infinity, // 폭
@@ -91,7 +91,7 @@ class MyPage extends StatelessWidget {
             margin: EdgeInsets.only(top: 50, left: 0),
             child: Text(
               "내 포인트",
-              style: Theme.of(context).textTheme.headline2,
+              style: Theme.of(context).textTheme.headline3,
             ),
           ),
           SizedBox(

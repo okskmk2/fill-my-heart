@@ -32,7 +32,7 @@ class FriendPage extends StatelessWidget {
         children: [
           Text(
             "감사카드를\n보낼 친구를 찾아주세요",
-            style: Theme.of(context).textTheme.headline1,
+            style: Theme.of(context).textTheme.headline2,
           ),
           SizedBox(
             height: 36,

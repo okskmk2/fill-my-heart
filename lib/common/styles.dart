@@ -18,10 +18,15 @@ class CustomStyles {
     textTheme: TextTheme(
       headline1: TextStyle(
         color: Color(0xff303030),
-        fontSize: 24,
+        fontSize: 27,
         fontWeight: FontWeight.bold,
       ),
       headline2: TextStyle(
+        color: Color(0xff303030),
+        fontSize: 24,
+        fontWeight: FontWeight.bold,
+      ),
+      headline3: TextStyle(
         color: Color(0xff303030),
         fontSize: 20,
         fontWeight: FontWeight.bold,

@@ -25,7 +25,7 @@ class HomePage extends StatelessWidget {
                 softWrap: true,
                 textAlign: TextAlign.left,
                 "홍길동님에게 \n새로운 감사인사가\n전달됐어요!",
-                style: TextStyle(fontSize: 27, fontWeight: FontWeight.bold),
+                style: Theme.of(context).textTheme.headline1,
               ),
             ),
             Container(
