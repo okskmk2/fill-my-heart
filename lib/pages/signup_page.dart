@@ -17,6 +17,8 @@ class _SignUpPageState extends State<SignUpPage> {
 
   @override
   Widget build(BuildContext context) {
+    bool isValid = passwordController.text == passwordConfirmController.text;
+
     return Consumer<AuthService>(builder: (context, authService, child) {
       final user = authService.currentUser();
       return Scaffold(
@@ -83,30 +85,38 @@ class _SignUpPageState extends State<SignUpPage> {
                   obscureText: true, // 비밀번호 안보이게
                   decoration: InputDecoration(
                     hintText: "비밀번호를 확인해주세요",
+                    errorText: isValid ? null : '비밀번호가 일치하지 않습니다',
                   ),
+                  onChanged: (text) {
+                    setState(() => passwordConfirmController.text);
+                  },
                 ),
                 SizedBox(height: 32),
 
                 /// 회원가입 버튼
                 ElevatedButton(
+                  onPressed: isValid
+                      ? () {
+                          // 회원가입
+                          authService.signUp(
+                            email: emailController.text,
+                            password: passwordConfirmController.text,
+                            onSuccess: () {
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(SnackBar(
+                                content: Text("회원가입에 성공하였습니다."),
+                              ));
+                            },
+                            onError: (errMsg) {
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(SnackBar(
+                                content: Text(errMsg),
+                              ));
+                            },
+                          );
+                        }
+                      : null,
                   child: Text("확인", style: TextStyle(fontSize: 18)),
-                  onPressed: () {
-                    // 회원가입
-                    authService.signUp(
-                      email: emailController.text,
-                      password: passwordController.text,
-                      onSuccess: () {
-                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                          content: Text("회원가입에 성공하였습니다."),
-                        ));
-                      },
-                      onError: (errMsg) {
-                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                          content: Text(errMsg),
-                        ));
-                      },
-                    );
-                  },
                 ),
               ],
             ),

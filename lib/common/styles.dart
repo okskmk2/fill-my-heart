@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class CustomStyles {
   static Color primaryColor = Color(0xff2C8464);
+  static Color diabledColor = Color(0xffA9DCC9);
   static ButtonStyle smallButtonStyle = ButtonStyle(
     padding: MaterialStateProperty.all(
       EdgeInsets.symmetric(vertical: 10, horizontal: 16),
@@ -56,11 +57,25 @@ class CustomStyles {
         padding: MaterialStateProperty.all(
           EdgeInsets.symmetric(vertical: 12, horizontal: 17),
         ),
-        textStyle: MaterialStateProperty.all(
-            TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-        backgroundColor: MaterialStateProperty.all(
-          CustomStyles.primaryColor,
-        ),
+        textStyle: MaterialStateProperty.resolveWith((states) {
+          if (states.contains(MaterialState.disabled)) {
+            return TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+              color: Colors.white,
+            );
+          } else {
+            return TextStyle(fontWeight: FontWeight.bold, fontSize: 16);
+          }
+        }),
+        backgroundColor:
+            MaterialStateProperty.resolveWith((Set<MaterialState> states) {
+          if (states.contains(MaterialState.disabled)) {
+            return CustomStyles.diabledColor;
+          } else {
+            return CustomStyles.primaryColor;
+          }
+        }),
         shape: MaterialStateProperty.all(
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))),
       ),
