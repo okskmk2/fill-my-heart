@@ -78,7 +78,7 @@ class _LoginPageState extends State<LoginPage> {
 
                 /// 회원가입 버튼
                 ElevatedButton(
-                  child: Text("확인", style: TextStyle(fontSize: 21)),
+                  child: Text("확인", style: TextStyle(fontSize: 18)),
                   onPressed: () {
                     // 회원가입
                     authService.signIn(

@@ -10,73 +10,49 @@ class FriendPage extends StatelessWidget {
   Widget build(BuildContext context) {
     // 데이터
     List<Map<String, dynamic>> dataList = [
-      {"category": "동그라미", "imgUrl": "", "email": "abcd1234@naver.com"},
-      {"category": "잔망루피", "imgUrl": "", "email": "abcd5678@naver.com"},
+      {
+        "category": "동그라미",
+        "imgUrl":
+            "https://www.crushpixel.com/big-static19/preview4/pink-donut-icon-isometric-style-3400525.jpg",
+        "email": "abcd1234@naver.com"
+      },
+      {
+        "category": "잔망루피",
+        "imgUrl":
+            "https://www.crushpixel.com/big-static19/preview4/pink-donut-icon-isometric-style-3400525.jpg",
+        "email": "saad38@naver.com"
+      },
     ];
 
     // 화면에 보이는 영역
-    return Scaffold(
-      appBar: AppBar(
-        elevation: 0, // 그림자 없애기
-        backgroundColor: Colors.white, // 배경 색상
-        centerTitle: false, // title 중앙 정렬
-        iconTheme: IconThemeData(color: Colors.black), // app bar icon color
-        title: Text(
-          "",
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
-      body: Column(
+    return Padding(
+      padding: EdgeInsets.only(top: 50, left: 20, right: 20),
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 16),
-            child: Text(
-              "감사카드를",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+          Text(
+            "감사카드를\n보낼 친구를 찾아주세요",
+            style: Theme.of(context).textTheme.headline1,
           ),
-
-          Padding(
-            padding: const EdgeInsets.only(left: 16, bottom: 8),
-            child: Text(
-              "보낼 친구를 찾아주세요",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+          SizedBox(
+            height: 36,
           ),
 
           /// 검색
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              decoration: InputDecoration(
-                hintText: "닉네임을 검색해주세요.",
-                border: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.black),
-                ),
-                // 돋보기 아이콘
-                suffixIcon: IconButton(
-                  icon: Icon(Icons.search),
-                  onPressed: () {
-                    print("돋보기 아이콘 클릭");
-                  },
-                ),
+          TextField(
+            decoration: InputDecoration(
+              hintText: "닉네임을 검색해주세요.",
+              suffixIcon: IconButton(
+                icon: Image.asset('assets/icons/search.png'),
+                onPressed: () {
+                  print("돋보기 아이콘 클릭");
+                },
               ),
             ),
           ),
-          Divider(height: 1),
+          SizedBox(
+            height: 16,
+          ),
 
           /// 카테고리 목록
           Expanded(
@@ -90,91 +66,61 @@ class FriendPage extends StatelessWidget {
                 Map<String, dynamic> data = dataList[index];
                 String category = data["category"];
                 String imgUrl = data["imgUrl"];
+                String email = data["email"];
 
                 // 카드 형태의 위젯
                 return Card(
-                  elevation: 50,
-                  shadowColor: Colors.black,
-                  color: Color.fromARGB(255, 255, 255, 255),
-                  child: SizedBox(
-                    width: 300,
-                    height: 250,
-                    child: Padding(
-                      padding: const EdgeInsets.all(20.0),
-                      child: Column(
-                        children: [
-                          CircleAvatar(
-                            backgroundColor: Colors.green[500],
-                            radius: 30,
-                            child: const CircleAvatar(
-                              backgroundImage: NetworkImage(
-                                  "https://www.crushpixel.com/big-static19/preview4/pink-donut-icon-isometric-style-3400525.jpg"), //NetworkImage
-                              radius: 30,
-                            ), //CircleAvatar
-                          ), //CircleAvatar
-                          const SizedBox(
-                            height: 10,
-                          ), //SizedBox
-                          Text(
-                            '동그라미',
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: Color.fromARGB(255, 0, 0, 0),
-                              fontWeight: FontWeight.w500,
-                            ), //Textstyle
-                          ), //Text
-                          const SizedBox(
-                            height: 10,
-                          ), //SizedBox
-                          const Text(
-                            'abcd1234@naver.com',
-                            style: TextStyle(
-                              fontSize: 15,
-                              color: Color.fromARGB(255, 0, 0, 0),
-                            ), //Textstyle
-                          ), //Text
-                          const SizedBox(
-                            height: 10,
-                          ), //SizedBox
-                          SizedBox(
-                            width: 300,
-
-                            child: ElevatedButton(
-                              onPressed: () => 'Null',
-                              style: ButtonStyle(
-                                  backgroundColor: MaterialStateProperty.all(
-                                      Color(0xff0ACC86))),
-                              child: Padding(
-                                padding: const EdgeInsets.all(4),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: const [
-                                    Icon(Icons.touch_app),
-                                    Text('감사카드 쓰기')
-                                  ],
-                                ),
+                  child: Padding(
+                    padding: EdgeInsets.all(24.0),
+                    child: Column(
+                      children: [
+                        CircleAvatar(
+                          backgroundColor: Color(0xffD9D9D9),
+                          backgroundImage: NetworkImage(imgUrl), //NetworkImage
+                          radius: 30,
+                        ), //CircleAvatar
+                        SizedBox(
+                          height: 10,
+                        ), //SizedBox
+                        Text(
+                          category,
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Color.fromARGB(255, 0, 0, 0),
+                            fontWeight: FontWeight.w500,
+                          ), //Textstyle
+                        ), //Text
+                        SizedBox(
+                          height: 10,
+                        ), //SizedBox
+                        Text(
+                          email,
+                          style: TextStyle(
+                            fontSize: 15,
+                            color: Color.fromARGB(255, 0, 0, 0),
+                          ), //Textstyle
+                        ), //Text
+                        SizedBox(
+                          height: 10,
+                        ), //SizedBox
+                        SizedBox(
+                          width: 300,
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            child: Padding(
+                              padding: EdgeInsets.all(4),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(Icons.touch_app),
+                                  Text('감사카드 쓰기')
+                                ],
                               ),
                             ),
-                            // RaisedButton is deprecated and should not be used
-                            // Use ElevatedButton instead
-
-                            // child: RaisedButton(
-                            //   onPressed: () => null,
-                            //   color: Colors.green,
-                            //   child: Padding(
-                            //     padding: const EdgeInsets.all(4.0),
-                            //     child: Row(
-                            //       children: const [
-                            //         Icon(Icons.touch_app),
-                            //         Text('Visit'),
-                            //       ],
-                            //     ), //Row
-                            //   ), //Padding
-                            // ), //RaisedButton
-                          ) //SizedBox
-                        ],
-                      ), //Column
-                    ), //Padding
+                          ),
+                        ) //SizedBox
+                      ],
+                    ), //Column
                   ), //SizedBox
                 ); //Ca
               },

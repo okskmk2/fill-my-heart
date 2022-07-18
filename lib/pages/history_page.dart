@@ -7,7 +7,7 @@ class HistoryPage extends StatefulWidget {
   const HistoryPage({Key? key}) : super(key: key);
 
   @override
-  _HistoryPageState createState() => _HistoryPageState();
+  State<HistoryPage> createState() => _HistoryPageState();
 }
 
 class _HistoryPageState extends State<HistoryPage>
@@ -30,75 +30,31 @@ class _HistoryPageState extends State<HistoryPage>
   // dispose the tab controller when the app is closed to avoid memory leaks
   @override
   void dispose() {
+    super.dispose(); // super는 항상 먼저 호출해야한다.
     controller.dispose();
-    super.dispose();
   }
 
   @override
-  Widget build(BuildContext context) => MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.white,
-            // leading: IconButton(
-            //   icon: Icon(CupertinoIcons.camera, color: Colors.black),
-            //     onPressed: () {},
-            //   ),
-            //  actions: [
-            //     IconButton(
-            //        icon: Icon(CupertinoIcons.paperplane, color: Colors.black),
-            //           onPressed: () {},
-            //       )
-            //   ],
-            title: Text('감사 카드',
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold)),
-            centerTitle: false,
-            elevation: 0,
-            bottom: TabBar(controller: controller, tabs: [
-              Tab(
-                child: ElevatedButton(
-                  child: Text("받은 감사"),
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: const Size(250, 40),
-                    maximumSize: const Size(250, 40),
-                    primary: Color(0xff0ACC86), // Background color
-                    onPrimary: Colors.white, // Text Color (Foreground color)
-                  ),
-                ),
-              ),
-              Tab(
-                child: ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: const Size(250, 40),
-                      maximumSize: const Size(250, 40),
-                      primary: Color(0xff0ACC86), // Background color
-                      onPrimary: Colors.white, // Text Color (Foreground color)
-                    ),
-                    child: Text(
-                      "보낸 감사",
-                    )),
-              ),
-              Tab(
-                child: Text(
-                  "",
-                  style: TextStyle(color: Colors.white),
-                ),
-                icon: Icon(
-                  Icons.bookmark,
-                  size: 30,
-                ),
-              ),
+  Widget build(BuildContext context) => Padding(
+        padding: const EdgeInsets.only(top: 50, left: 20, right: 20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text("감사카드", style: Theme.of(context).textTheme.headline2),
+            SizedBox(
+              height: 24,
+            ),
+            TabBar(controller: controller, tabs: [
+              Tab(text: "받은 감사"),
+              Tab(text: "보낸 감사"),
+              Tab(text: "즐겨찾기"),
             ]),
-          ),
-          // no of widgets must be same as parent (TabBar)
-          body: TabBarView(
-              controller: controller,
-              children: [SecondPage(), FirstPage(), ThirdPage()]),
+            Expanded(
+              child: TabBarView(
+                  controller: controller,
+                  children: [SecondPage(), FirstPage(), ThirdPage()]),
+            ),
+          ],
         ),
       );
 }

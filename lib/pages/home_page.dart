@@ -32,19 +32,11 @@ class HomePage extends StatelessWidget {
               margin: EdgeInsets.only(left: 260),
               child: ElevatedButton(
                 onPressed: () {},
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
-                    Color(0xff0ACC86),
-                  ),
-                ),
-                child: Text(
-                  '확인하기',
-                  style: TextStyle(fontSize: 16),
-                ),
+                child: Text('확인하기'),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8),
+              padding: EdgeInsets.all(8),
               child: Image.asset(
                 'assets/seed.png',
                 width: double.infinity,

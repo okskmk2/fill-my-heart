@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:thank_tree/common/styles.dart';
 import 'package:thank_tree/layout/main_screen.dart';
 import 'package:thank_tree/pages/login_page.dart';
 import 'package:thank_tree/pages/start_page.dart';
@@ -26,41 +27,7 @@ class MyApp extends StatelessWidget {
     // FirebaseAuth.instance.signOut();
     final user = context.read<AuthService>().currentUser();
     return MaterialApp(
-        theme: ThemeData(
-            scaffoldBackgroundColor: Colors.white,
-            primaryColor: Color(0xff0ACC86),
-            fontFamily: 'SpoqaHanSansNeo',
-            elevatedButtonTheme: ElevatedButtonThemeData(
-              style: ButtonStyle(
-                textStyle: MaterialStateProperty.all(
-                    TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
-                backgroundColor: MaterialStateProperty.all(
-                  Color(0xff0ACC86),
-                ),
-                shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12))),
-                minimumSize:
-                    MaterialStateProperty.all(Size(double.infinity, 56)),
-              ),
-            ),
-            inputDecorationTheme: InputDecorationTheme(
-              enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Colors.white,
-                  ),
-                  borderRadius: BorderRadius.all(Radius.circular(10.0))),
-              focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Colors.white,
-                  ),
-                  borderRadius: BorderRadius.all(Radius.circular(10.0))),
-              filled: true,
-              hintStyle: TextStyle(color: Color(0xffA3A9B4)),
-            ),
-            appBarTheme: AppBarTheme(
-                elevation: 0,
-                color: Colors.white,
-                iconTheme: IconThemeData(color: Colors.black))),
+        theme: CustomStyles.customTheme,
         debugShowCheckedModeBanner: false,
         home: user == null ? StartPage() : MainScreen());
   }

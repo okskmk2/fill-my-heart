@@ -32,19 +32,19 @@ class _SendfinishState extends State<Sendfinish> {
             width: 300,
             height: 500,
             child: Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: EdgeInsets.all(20.0),
               child: Column(
                 children: [
                   CircleAvatar(
                     backgroundColor: Color(0xff0ACC86),
                     radius: 108,
-                    child: const CircleAvatar(
+                    child: CircleAvatar(
                       backgroundImage: NetworkImage(
                           "https://cdn.dribbble.com/users/1097272/screenshots/10744485/media/fbd89f6862b321afa9473905e71bbb86.png?compress=1&resize=400x300&vertical=top"), //NetworkImage
                       radius: 100,
                     ), //CircleAvatar
                   ), //CircleAvatar
-                  const SizedBox(
+                  SizedBox(
                     height: 10,
                   ), //SizedBox
                   Row(
@@ -68,60 +68,31 @@ class _SendfinishState extends State<Sendfinish> {
                       ),
                     ],
                   ), //Text //Text
-                  const SizedBox(
+                  SizedBox(
                     height: 10,
                   ), //SizedBox
-                  const Text(
+                  Text(
                     '님에게 마음을 전달했어요!',
                     style: TextStyle(
                       fontSize: 15,
                       color: Color.fromARGB(255, 0, 0, 0),
                     ), //Textstyle
                   ), //Text
-                  const SizedBox(
+                  SizedBox(
                     height: 10,
                   ), //SizedBox
-                  SizedBox(
-                    width: 150,
-
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  MainScreen(selectedIndex: 1)),
-                        );
-                      },
-                      style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all(Color(0xff0ACC86))),
-                      child: Padding(
-                        padding: const EdgeInsets.all(4),
-                        child: Row(
-                          children: const [
-                            Icon(Icons.touch_app),
-                            Text('감사내역 보기')
-                          ],
-                        ),
-                      ),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => MainScreen(selectedIndex: 1)),
+                      );
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [Icon(Icons.touch_app), Text('감사내역 보기')],
                     ),
-                    // RaisedButton is deprecated and should not be used
-                    // Use ElevatedButton instead
-
-                    // child: RaisedButton(
-                    // onPressed: () => null,
-                    // color: Colors.green,
-                    // child: Padding(
-                    //	 padding: const EdgeInsets.all(4.0),
-                    //	 child: Row(
-                    //	 children: const [
-                    //		 Icon(Icons.touch_app),
-                    //		 Text('Visit'),
-                    //	 ],
-                    //	 ), //Row
-                    // ), //Padding
-                    // ), //RaisedButton
                   ) //SizedBox
                 ],
               ), //Column
