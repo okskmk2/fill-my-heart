@@ -37,7 +37,14 @@ class CustomStyles {
         borderRadius: BorderRadius.circular(50),
         color: CustomStyles.primaryColor,
       ),
-      labelPadding: EdgeInsets.all(0),
+      labelStyle: TextStyle(
+        fontSize: 16,
+        fontWeight: FontWeight.bold,
+      ),
+      unselectedLabelStyle: TextStyle(
+        fontSize: 16,
+        fontWeight: FontWeight.bold,
+      ),
       unselectedLabelColor: Colors.grey,
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
