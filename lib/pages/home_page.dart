@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:thank_tree/common/styles.dart';
 
-class HomePage extends StatelessWidget {
+final List<String> imgList = ['assets/icons/dd 1.png'];
+
+class HomePage extends StatefulWidget {
   // constructor
   const HomePage({Key? key}) : super(key: key);
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   final bottomIndex = 0;
 
   @override
   Widget build(BuildContext context) {
-    /*return Container(
-      alignment: AlignmentDirectional.center,
-      child: Image.asset('assets/tree.jpg'),
-    );*/
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -25,25 +30,20 @@ class HomePage extends StatelessWidget {
               child: Text(
                 softWrap: true,
                 textAlign: TextAlign.left,
-                "홍길동님에게 \n새로운 감사인사가\n전달됐어요!",
+                "안녕하세요 OO님",
                 style: Theme.of(context).textTheme.headline1,
               ),
             ),
             Container(
-              margin: EdgeInsets.only(left: 260),
-              child: ElevatedButton(
-                onPressed: () {},
-                style: CustomStyles.smallButtonStyle,
-                child: Text('확인하기'),
-              ),
-            ),
-            Padding(
+              height: 400,
               padding: EdgeInsets.all(8),
-              child: Image.asset(
-                'assets/seed.png',
-                width: double.infinity,
-                height: 300,
-                fit: BoxFit.fitHeight,
+              child: Swiper(
+                control: SwiperControl(),
+                pagination: SwiperPagination(),
+                itemCount: imgList.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return Image.asset(imgList[index]);
+                },
               ),
             )
           ],
@@ -52,3 +52,6 @@ class HomePage extends StatelessWidget {
     );
   }
 }
+
+//page view
+//acrouselController
