@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:thank_tree/layout/main_screen.dart';
-import 'package:thank_tree/pages/history_page.dart';
+import 'package:thank_tree/pages/post_office_page.dart';
 
 class Sendfinish extends StatefulWidget {
   @override

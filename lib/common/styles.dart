@@ -39,13 +39,14 @@ class CustomStyles {
     ),
     tabBarTheme: TabBarTheme(
       indicator: BoxDecoration(
-        borderRadius: BorderRadius.circular(50),
-        color: CustomStyles.primaryColor,
+        color: Colors.white.withOpacity(0.0),
+        border: Border(
+          bottom: BorderSide(color: primaryColor, width: 2),
+        ),
       ),
+      labelColor: primaryColor,
       labelStyle: TextStyle(
-        fontSize: 16,
-        fontWeight: FontWeight.bold,
-      ),
+          fontSize: 16, fontWeight: FontWeight.bold, color: primaryColor),
       unselectedLabelStyle: TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.bold,

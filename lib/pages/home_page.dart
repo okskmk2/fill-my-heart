@@ -30,7 +30,7 @@ class _HomePageState extends State<HomePage> {
               child: Text(
                 softWrap: true,
                 textAlign: TextAlign.left,
-                "안녕하세요 OO님",
+                "동그라미님의 감사나무\n편지 10개",
                 style: Theme.of(context).textTheme.headline1,
               ),
             ),
