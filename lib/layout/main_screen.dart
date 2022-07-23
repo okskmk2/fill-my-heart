@@ -27,7 +27,7 @@ class _MainScreenState extends State<MainScreen> {
 
   final List<Widget> pages = <Widget>[
     HomePage(),
-    SendPage(),
+    LeafFormPage(),
     MyPage(),
     PostOfficePage()
   ];

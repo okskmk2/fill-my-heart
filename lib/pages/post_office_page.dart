@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:thank_tree/common/styles.dart';
 import 'package:thank_tree/pages/vase_detail_page.dart';
+import 'package:thank_tree/pages/vase_form_page.dart';
 
 class PostOfficePage extends StatefulWidget {
   const PostOfficePage({Key? key}) : super(key: key);
@@ -119,7 +120,12 @@ class _PostOfficePageState extends State<PostOfficePage>
           ],
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => VaseFormPage()),
+            );
+          },
           backgroundColor: Colors.black,
           child: Icon(Icons.add),
         ),
@@ -132,83 +138,10 @@ class DoingTabView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
-      separatorBuilder: (BuildContext context, int index) {
-        return Divider(thickness: 1);
-      },
-      itemCount: 9,
-      itemBuilder: (buildContext, index) {
-        return GestureDetector(
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => VaseDetailPage()),
-            );
-          },
-          child: SizedBox(
-            height: 116,
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(
-                  width: 90,
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      width: 1,
-                      color: Color(0xffE9E1D3),
-                    ),
-                    shape: BoxShape.circle,
-                    color: Color(0x88EBDBB9),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: Image.asset('assets/icons/vase1.png'),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "홍길동님에게 전달까지",
-                        style: TextStyle(
-                          color: Color(0xff36332E),
-                          fontWeight: FontWeight.w700,
-                          fontSize: 14,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 6,
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            "7일 2시간 10분",
-                            style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w800,
-                                color: CustomStyles.primaryColor),
-                          ),
-                          Text(
-                            " 남았어요",
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                              color: Color(0xff1F1E1C),
-                            ),
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
-                )
-              ],
-            ),
-          ),
-        );
-      },
-    );
+        separatorBuilder: (BuildContext context, int index) =>
+            Divider(thickness: 1),
+        itemCount: 9,
+        itemBuilder: vaseCard);
   }
 }
 
@@ -217,6 +150,83 @@ class DoneTabView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text('보내기 완료');
+    return ListView.separated(
+        separatorBuilder: (BuildContext context, int index) =>
+            Divider(thickness: 1),
+        itemCount: 9,
+        itemBuilder: vaseCard);
   }
+}
+
+Widget vaseCard(context, index) {
+  return GestureDetector(
+    onTap: () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => VaseDetailPage()),
+      );
+    },
+    child: SizedBox(
+      height: 116,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            width: 90,
+            decoration: BoxDecoration(
+              border: Border.all(
+                width: 1,
+                color: Color(0xffE9E1D3),
+              ),
+              shape: BoxShape.circle,
+              color: Color(0x88EBDBB9),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(20),
+              child: Image.asset('assets/icons/vase1.png'),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "홍길동님에게 전달까지",
+                  style: TextStyle(
+                    color: Color(0xff36332E),
+                    fontWeight: FontWeight.w700,
+                    fontSize: 14,
+                  ),
+                ),
+                SizedBox(
+                  height: 6,
+                ),
+                Row(
+                  children: [
+                    Text(
+                      "7일 2시간 10분",
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w800,
+                          color: CustomStyles.primaryColor),
+                    ),
+                    Text(
+                      " 남았어요",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700,
+                        color: Color(0xff1F1E1C),
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
+          )
+        ],
+      ),
+    ),
+  );
 }

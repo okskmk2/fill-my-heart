@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:thank_tree/common/styles.dart';
+import 'package:thank_tree/pages/leaf_form_page.dart';
 
 class VaseDetailPage extends StatelessWidget {
   const VaseDetailPage({Key? key}) : super(key: key);
@@ -34,7 +33,13 @@ class VaseDetailPage extends StatelessWidget {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          print("1");
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => LeafFormPage()),
+          );
+        },
         backgroundColor: Colors.black,
         child: Icon(Icons.edit),
       ),

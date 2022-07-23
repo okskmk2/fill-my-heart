@@ -1,11 +1,5 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
-import 'package:thank_tree/common/styles.dart';
-import 'package:thank_tree/pages/start_page.dart';
 
 class MyPage extends StatelessWidget {
   final vaseSize = 130.0;
@@ -20,7 +14,7 @@ class MyPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "내가 받은 화분 12",
+            "화분 보관함 12",
             style: Theme.of(context).textTheme.headline2,
           ),
           SizedBox(height: 30),
