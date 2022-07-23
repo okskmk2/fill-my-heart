@@ -5,7 +5,7 @@ import 'package:thank_tree/pages/post_office_page.dart';
 import 'package:thank_tree/pages/home_page.dart';
 import 'package:thank_tree/pages/my_page.dart';
 import 'package:thank_tree/pages/friend_page.dart';
-import 'package:thank_tree/pages/send_page.dart';
+import 'package:thank_tree/pages/leaf_form_page.dart';
 import 'package:thank_tree/services/auth_service.dart';
 
 class MainScreen extends StatefulWidget {
@@ -25,8 +25,9 @@ class _MainScreenState extends State<MainScreen> {
     _selectedIndex = widget.selectedIndex;
   }
 
-  final List<Widget> _widgetOptions = <Widget>[
+  final List<Widget> pages = <Widget>[
     HomePage(),
+    SendPage(),
     MyPage(),
     PostOfficePage()
   ];
@@ -55,6 +56,17 @@ class _MainScreenState extends State<MainScreen> {
             activeIcon: SvgPicture.asset('assets/icons/home.svg'),
           ),
           BottomNavigationBarItem(
+            label: '감사카드 쓰기',
+            icon: SvgPicture.asset(
+              'assets/icons/my.svg',
+              color: inactiveColor,
+            ),
+            activeIcon: SvgPicture.asset(
+              'assets/icons/my.svg',
+              color: Colors.black,
+            ),
+          ),
+          BottomNavigationBarItem(
             label: '화분 보관함',
             icon: SvgPicture.asset(
               'assets/icons/my.svg',
@@ -78,7 +90,7 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ],
       ),
-      body: SafeArea(child: _widgetOptions.elementAt(_selectedIndex)),
+      body: SafeArea(child: pages.elementAt(_selectedIndex)),
     );
   }
 }

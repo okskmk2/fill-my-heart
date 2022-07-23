@@ -22,7 +22,7 @@ class _SignUpPageState extends State<SignUpPage> {
     return Consumer<AuthService>(builder: (context, authService, child) {
       final user = authService.currentUser();
       return Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(backgroundColor: Colors.transparent),
         body: SafeArea(
           child: SingleChildScrollView(
             padding: const EdgeInsets.all(24),

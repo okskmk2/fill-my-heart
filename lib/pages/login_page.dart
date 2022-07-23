@@ -19,7 +19,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Consumer<AuthService>(builder: (context, authService, child) {
       return Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(backgroundColor: Colors.transparent),
         body: SafeArea(
           child: SingleChildScrollView(
             padding: const EdgeInsets.all(24),

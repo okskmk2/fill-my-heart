@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:thank_tree/pages/basic_gridview.dart';
-import 'package:thank_tree/pages/dynamic_size_gridview.dart';
-import 'package:thank_tree/pages/silver_gridview.dart';
+import 'package:thank_tree/common/styles.dart';
+import 'package:thank_tree/pages/vase_detail_page.dart';
 
 class PostOfficePage extends StatefulWidget {
   const PostOfficePage({Key? key}) : super(key: key);
@@ -35,24 +34,95 @@ class _PostOfficePageState extends State<PostOfficePage>
   }
 
   @override
-  Widget build(BuildContext context) => Padding(
-        padding: const EdgeInsets.only(top: 50, left: 20, right: 20),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text("화분 우체국", style: Theme.of(context).textTheme.headline3),
-          SizedBox(
-            height: 24,
-          ),
-          TabBar(controller: controller, tabs: [
-            Tab(text: "진행 중"),
-            Tab(text: "보내기 완료"),
-          ]),
-          Expanded(
-            child: TabBarView(controller: controller, children: [
-              DoingTabView(),
-              DoneTabView(),
-            ]),
-          ),
-        ]),
+  Widget build(BuildContext context) => Scaffold(
+        appBar: AppBar(
+          backgroundColor: CustomStyles.primaryColor,
+        ),
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Container(
+              color: CustomStyles.primaryColor,
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  top: 15,
+                  left: 24,
+                  right: 24,
+                  bottom: 44,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "화분 우체국",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 24,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 8,
+                    ),
+                    Text(
+                      "내가 현재 만들고 있는 화분과\n이전에 전달한 화분을 보여드려요",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Expanded(
+              child: Container(
+                color: CustomStyles.primaryColor,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20),
+                  ),
+                  child: Container(
+                    color: CustomStyles.backgroundColor,
+                    child: Padding(
+                      padding: const EdgeInsets.all(24),
+                      child: Column(
+                        children: [
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: TabBar(
+                              isScrollable: true,
+                              controller: controller,
+                              tabs: [
+                                Tab(text: '진행 중 12'),
+                                Tab(text: "보내기 완료 10"),
+                              ],
+                            ),
+                          ),
+                          Expanded(
+                            child: TabBarView(
+                              controller: controller,
+                              children: [
+                                DoingTabView(),
+                                DoneTabView(),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          backgroundColor: Colors.black,
+          child: Icon(Icons.add),
+        ),
       );
 }
 
@@ -65,25 +135,76 @@ class DoingTabView extends StatelessWidget {
       separatorBuilder: (BuildContext context, int index) {
         return Divider(thickness: 1);
       },
-      itemCount: 3,
+      itemCount: 9,
       itemBuilder: (buildContext, index) {
-        return ListTile(
-          contentPadding: EdgeInsets.all(8),
-          // visualDensity: VisualDensity.comfortable,
-          leading: CircleAvatar(
-            // minRadius: 5,
-            radius: 40,
-            backgroundColor: Color(0x88EBDBB9),
-            child: Image.asset(
-              'assets/icons/vase1.png',
+        return GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => VaseDetailPage()),
+            );
+          },
+          child: SizedBox(
+            height: 116,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  width: 90,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      width: 1,
+                      color: Color(0xffE9E1D3),
+                    ),
+                    shape: BoxShape.circle,
+                    color: Color(0x88EBDBB9),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(20),
+                    child: Image.asset('assets/icons/vase1.png'),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "홍길동님에게 전달까지",
+                        style: TextStyle(
+                          color: Color(0xff36332E),
+                          fontWeight: FontWeight.w700,
+                          fontSize: 14,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 6,
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            "7일 2시간 10분",
+                            style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w800,
+                                color: CustomStyles.primaryColor),
+                          ),
+                          Text(
+                            " 남았어요",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w700,
+                              color: Color(0xff1F1E1C),
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                )
+              ],
             ),
-          ),
-          title: Padding(
-            padding: const EdgeInsets.symmetric(
-              vertical: 16,
-              horizontal: 2,
-            ),
-            child: Text("홍길동님에게 전달까지\n7일 2시간 10분 남았어요"),
           ),
         );
       },
