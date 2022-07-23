@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:thank_tree/common/styles.dart';
 import 'package:thank_tree/pages/start_page.dart';
 
@@ -23,96 +24,110 @@ class MyPage extends StatelessWidget {
             style: Theme.of(context).textTheme.headline2,
           ),
           SizedBox(
-            height: 30,
+            height: 10,
           ),
           Expanded(
             flex: 1,
-            child: Center(
-              child: Container(
-                width: double.infinity, // 폭
-                margin: EdgeInsets.only(top: 10),
-                decoration: BoxDecoration(
-                    // 박스 색상
+            child: Swiper(
+              control: SwiperControl(),
+              pagination: SwiperPagination(),
+              loop: false,
+              itemCount: 1,
+              itemBuilder: (BuildContext context, int index) {
+                return Center(
+                  child: Container(
+                    width: double.infinity, // 폭
+                    margin: EdgeInsets.only(top: 10),
+                    decoration: BoxDecoration(
+                        // 박스 색상
+                        ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Expanded(
+                            child: Column(children: [
+                          Row(
+                            children: [
+                              Expanded(
+                                child: Image.asset('assets/icons/vase1.png',
+                                    fit: BoxFit.cover),
+                              ),
+                              Expanded(
+                                child: Image.asset('assets/icons/vase2.png',
+                                    fit: BoxFit.cover),
+                              ),
+                              Expanded(
+                                child: Image.asset('assets/icons/vase1.png',
+                                    fit: BoxFit.cover),
+                              ),
+                            ],
+                          ),
+                          Image.asset(
+                            'assets/icons/shelf1.png',
+                            width: double.infinity,
+                            fit: BoxFit.cover,
+                          )
+                        ])),
+                        Expanded(
+                            child: Column(children: [
+                          Row(
+                            children: [
+                              Expanded(
+                                child: Image.asset('assets/icons/vase2.png',
+                                    fit: BoxFit.cover),
+                              ),
+                              Expanded(
+                                child: Image.asset('assets/icons/vase1.png',
+                                    fit: BoxFit.cover),
+                              ),
+                              Expanded(
+                                child: Image.asset('assets/icons/vase2.png',
+                                    fit: BoxFit.cover),
+                              ),
+                            ],
+                          ),
+                          Image.asset(
+                            'assets/icons/shelf2.png',
+                            width: double.infinity,
+                            fit: BoxFit.cover,
+                          )
+                        ])),
+                        Expanded(
+                          child: Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Expanded(
+                                    child: Image.asset('assets/icons/vase1.png',
+                                        fit: BoxFit.cover),
+                                  ),
+                                  Expanded(
+                                    child: Image.asset('assets/icons/vase2.png',
+                                        fit: BoxFit.cover),
+                                  ),
+                                  Expanded(
+                                    child: Image.asset('assets/icons/vase2.png',
+                                        fit: BoxFit.cover),
+                                  ),
+                                ],
+                              ),
+                              Image.asset(
+                                'assets/icons/shelf3.png',
+                                width: double.infinity,
+                                fit: BoxFit.cover,
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Expanded(
-                        child: Column(children: [
-                      Row(
-                        children: [
-                          Expanded(
-                            child: Image.asset('assets/icons/vase1.png',
-                                fit: BoxFit.cover),
-                          ),
-                          Expanded(
-                            child: Image.asset('assets/icons/vase2.png',
-                                fit: BoxFit.cover),
-                          ),
-                          Expanded(
-                            child: Image.asset('assets/icons/vase1.png',
-                                fit: BoxFit.cover),
-                          ),
-                        ],
-                      ),
-                      Image.asset(
-                        'assets/icons/shelf1.png',
-                        width: double.infinity,
-                        fit: BoxFit.cover,
-                      )
-                    ])),
-                    Expanded(
-                        child: Column(children: [
-                      Row(
-                        children: [
-                          Expanded(
-                            child: Image.asset('assets/icons/vase2.png',
-                                fit: BoxFit.cover),
-                          ),
-                          Expanded(
-                            child: Image.asset('assets/icons/vase1.png',
-                                fit: BoxFit.cover),
-                          ),
-                          Expanded(
-                            child: Image.asset('assets/icons/vase2.png',
-                                fit: BoxFit.cover),
-                          ),
-                        ],
-                      ),
-                      Image.asset(
-                        'assets/icons/shelf2.png',
-                        width: double.infinity,
-                        fit: BoxFit.cover,
-                      )
-                    ])),
-                    Expanded(
-                        child: Column(children: [
-                      Row(
-                        children: [
-                          Expanded(
-                            child: Image.asset('assets/icons/vase1.png',
-                                fit: BoxFit.cover),
-                          ),
-                          Expanded(
-                            child: Image.asset('assets/icons/vase2.png',
-                                fit: BoxFit.cover),
-                          ),
-                          Expanded(
-                            child: Image.asset('assets/icons/vase2.png',
-                                fit: BoxFit.cover),
-                          ),
-                        ],
-                      ),
-                      Image.asset(
-                        'assets/icons/shelf3.png',
-                        width: double.infinity,
-                        fit: BoxFit.cover,
-                      )
-                    ])),
-                  ],
-                ),
-              ),
+                  ),
+                );
+              },
             ),
+          ),
+          SizedBox(
+            height: 30,
           ),
         ],
       ),
