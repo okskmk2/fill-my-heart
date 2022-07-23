@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    FirebaseAuth.instance.signOut();
+    // FirebaseAuth.instance.signOut();
     final user = context.read<AuthService>().currentUser();
     return MaterialApp(
         theme: CustomStyles.customTheme,
