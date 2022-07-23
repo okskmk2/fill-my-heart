@@ -38,6 +38,7 @@ class _HomePageState extends State<HomePage> {
               height: 400,
               padding: EdgeInsets.all(8),
               child: Swiper(
+                loop: false,
                 control: SwiperControl(),
                 pagination: SwiperPagination(),
                 itemCount: imgList.length,
