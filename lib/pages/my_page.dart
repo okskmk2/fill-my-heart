@@ -8,9 +8,9 @@ import 'package:thank_tree/common/styles.dart';
 import 'package:thank_tree/pages/start_page.dart';
 
 class MyPage extends StatelessWidget {
+  final vaseSize = 130.0;
   // constructor
   const MyPage({Key? key}) : super(key: key);
-  final bottomIndex = 4;
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +23,7 @@ class MyPage extends StatelessWidget {
             "내가 받은 화분 12",
             style: Theme.of(context).textTheme.headline2,
           ),
-          SizedBox(
-            height: 10,
-          ),
+          SizedBox(height: 30),
           Expanded(
             flex: 1,
             child: Swiper(
@@ -34,94 +32,112 @@ class MyPage extends StatelessWidget {
               loop: false,
               itemCount: 1,
               itemBuilder: (BuildContext context, int index) {
-                return Center(
-                  child: Container(
-                    width: double.infinity, // 폭
-                    margin: EdgeInsets.only(top: 10),
-                    decoration: BoxDecoration(
-                        // 박스 색상
-                        ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Expanded(
-                            child: Column(children: [
+                return Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Expanded(
+                        child: Column(children: [
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Image.asset(
+                              'assets/icons/vase1.png',
+                              height: vaseSize,
+                              fit: BoxFit.scaleDown,
+                            ),
+                          ),
+                          Expanded(
+                            child: Image.asset(
+                              'assets/icons/vase2.png',
+                              height: vaseSize,
+                              fit: BoxFit.scaleDown,
+                            ),
+                          ),
+                          Expanded(
+                            child: Image.asset(
+                              'assets/icons/vase1.png',
+                              height: vaseSize,
+                              fit: BoxFit.scaleDown,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Image.asset(
+                        'assets/icons/shelf1.png',
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                      )
+                    ])),
+                    Expanded(
+                        child: Column(children: [
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Image.asset(
+                              'assets/icons/vase2.png',
+                              height: vaseSize,
+                              fit: BoxFit.scaleDown,
+                            ),
+                          ),
+                          Expanded(
+                            child: Image.asset(
+                              'assets/icons/vase1.png',
+                              height: vaseSize,
+                              fit: BoxFit.scaleDown,
+                            ),
+                          ),
+                          Expanded(
+                            child: Image.asset(
+                              'assets/icons/vase2.png',
+                              height: vaseSize,
+                              fit: BoxFit.scaleDown,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Image.asset(
+                        'assets/icons/shelf2.png',
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                      )
+                    ])),
+                    Expanded(
+                      child: Column(
+                        children: [
                           Row(
                             children: [
                               Expanded(
-                                child: Image.asset('assets/icons/vase1.png',
-                                    fit: BoxFit.cover),
+                                child: Image.asset(
+                                  'assets/icons/vase1.png',
+                                  height: vaseSize,
+                                  fit: BoxFit.scaleDown,
+                                ),
                               ),
                               Expanded(
-                                child: Image.asset('assets/icons/vase2.png',
-                                    fit: BoxFit.cover),
+                                child: Image.asset(
+                                  'assets/icons/vase2.png',
+                                  height: vaseSize,
+                                  fit: BoxFit.scaleDown,
+                                ),
                               ),
                               Expanded(
-                                child: Image.asset('assets/icons/vase1.png',
-                                    fit: BoxFit.cover),
+                                child: Image.asset(
+                                  'assets/icons/vase2.png',
+                                  height: vaseSize,
+                                  fit: BoxFit.scaleDown,
+                                ),
                               ),
                             ],
                           ),
                           Image.asset(
-                            'assets/icons/shelf1.png',
+                            'assets/icons/shelf3.png',
                             width: double.infinity,
                             fit: BoxFit.cover,
                           )
-                        ])),
-                        Expanded(
-                            child: Column(children: [
-                          Row(
-                            children: [
-                              Expanded(
-                                child: Image.asset('assets/icons/vase2.png',
-                                    fit: BoxFit.cover),
-                              ),
-                              Expanded(
-                                child: Image.asset('assets/icons/vase1.png',
-                                    fit: BoxFit.cover),
-                              ),
-                              Expanded(
-                                child: Image.asset('assets/icons/vase2.png',
-                                    fit: BoxFit.cover),
-                              ),
-                            ],
-                          ),
-                          Image.asset(
-                            'assets/icons/shelf2.png',
-                            width: double.infinity,
-                            fit: BoxFit.cover,
-                          )
-                        ])),
-                        Expanded(
-                          child: Column(
-                            children: [
-                              Row(
-                                children: [
-                                  Expanded(
-                                    child: Image.asset('assets/icons/vase1.png',
-                                        fit: BoxFit.cover),
-                                  ),
-                                  Expanded(
-                                    child: Image.asset('assets/icons/vase2.png',
-                                        fit: BoxFit.cover),
-                                  ),
-                                  Expanded(
-                                    child: Image.asset('assets/icons/vase2.png',
-                                        fit: BoxFit.cover),
-                                  ),
-                                ],
-                              ),
-                              Image.asset(
-                                'assets/icons/shelf3.png',
-                                width: double.infinity,
-                                fit: BoxFit.cover,
-                              )
-                            ],
-                          ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
+                  ],
                 );
               },
             ),
