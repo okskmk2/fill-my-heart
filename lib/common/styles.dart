@@ -11,7 +11,7 @@ class CustomStyles {
         RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
   );
   static ThemeData customTheme = ThemeData(
-    scaffoldBackgroundColor: Colors.white,
+    scaffoldBackgroundColor: Color(0xffFAF5EA),
     primaryColor: CustomStyles.primaryColor,
     fontFamily: 'NanumSquareRound',
     cardTheme: CardTheme(
