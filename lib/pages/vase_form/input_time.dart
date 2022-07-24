@@ -15,8 +15,8 @@ class InputTime extends StatefulWidget {
 class InputTimeState extends State<InputTime> {
   // Create a text controller and use it to retrieve the current value
   // of the TextField.
-  final format = DateFormat("yyyy-MM-dd");
-  final tiemformat = DateFormat("HH:mm");
+  final dateFormat = DateFormat("yyyy-MM-dd");
+  final tiemFormat = DateFormat("HH:mm");
 
   final dateController = TextEditingController();
   final timeController = TextEditingController();
@@ -49,17 +49,22 @@ class InputTimeState extends State<InputTime> {
             TextField(
               controller: dateController,
               onTap: () {
+                DateTime initialDate;
+                try {
+                  initialDate = dateFormat.parse(dateController.text);
+                } catch (e) {
+                  initialDate = DateTime.now();
+                }
                 Future<DateTime?> datePicker = showDatePicker(
-                    context: context,
-                    firstDate: DateTime(1900),
-                    initialDate: dateController.text.isNotEmpty
-                        ? format.parse(dateController.text)
-                        : DateTime.now(),
-                    lastDate: DateTime(2100));
+                  context: context,
+                  firstDate: DateTime(1900),
+                  initialDate: initialDate,
+                  lastDate: DateTime(2100),
+                );
                 datePicker.then((value) {
                   if (value != null) {
                     setState(() {
-                      dateController.text = format.format(value);
+                      dateController.text = dateFormat.format(value);
                     });
                   }
                 });
@@ -72,11 +77,20 @@ class InputTimeState extends State<InputTime> {
             TextField(
               controller: timeController,
               onTap: () {
+                TimeOfDay initialTime;
+                try {
+                  initialTime = TimeOfDay.fromDateTime(
+                      tiemFormat.parse(timeController.text));
+                } catch (e) {
+                  initialTime = TimeOfDay.now();
+                }
                 Future<TimeOfDay?> timePicker = showTimePicker(
-                    context: context, initialTime: TimeOfDay.now());
+                  context: context,
+                  initialTime: initialTime,
+                );
                 timePicker.then((value) {
                   if (value != null) {
-                    setState(() {
+                    setState(() {                      
                       timeController.text = value.to24hours();
                     });
                   }
@@ -92,13 +106,14 @@ class InputTimeState extends State<InputTime> {
                 width: double.infinity,
                 margin: EdgeInsets.only(left: 0, right: 0),
                 child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => InputPeople()),
-                      );
-                    },
-                    child: Text("다음")),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => InputPeople()),
+                    );
+                  },
+                  child: Text("다음"),
+                ),
               ),
             )
           ],
