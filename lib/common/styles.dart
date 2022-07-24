@@ -85,17 +85,17 @@ class CustomStyles {
       ),
     ),
     inputDecorationTheme: InputDecorationTheme(
-      enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.white,
-          ),
-          borderRadius: BorderRadius.all(Radius.circular(10.0))),
-      focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.white,
-          ),
-          borderRadius: BorderRadius.all(Radius.circular(10.0))),
-      filled: true,
+      enabledBorder: UnderlineInputBorder(
+        borderSide: BorderSide(
+          color: CustomStyles.inputLineColor,
+        ),
+      ),
+      focusedBorder: UnderlineInputBorder(
+        borderSide: BorderSide(
+          color: CustomStyles.inputLineColor,
+        ),
+      ),
+      // filled: true,
       hintStyle: TextStyle(color: Color(0xffA3A9B4)),
     ),
     appBarTheme: AppBarTheme(

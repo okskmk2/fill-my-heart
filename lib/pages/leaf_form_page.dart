@@ -1,67 +1,56 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/src/foundation/key.dart';
+import 'package:flutter/src/widgets/framework.dart';
 
 class LeafFormPage extends StatelessWidget {
   const LeafFormPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(
-            right: 24,
-            left: 24,
-            top: 50,
-            bottom: 14,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          '홍길동 님에게',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
           ),
-          child: Text(
-            '감사카드 쓰기',
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.w800,
+        ),
+        centerTitle: true,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(24),
+        child:
+            Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+          Padding(
+            padding: const EdgeInsets.only(bottom: 32),
+            child: TextField(
+              minLines: 8,
+              maxLines: 10,
+              decoration: InputDecoration(
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.all(Radius.circular(12)),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.all(Radius.circular(12)),
+                  ),
+                  filled: true,
+                  fillColor: Colors.white,
+                  hintText: "상대방에게 감사한 마음을 담아보내주세요"),
             ),
           ),
-        ),
-        Expanded(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 22, right: 22, top: 14),
-                child: Container(
-                  padding: EdgeInsets.all(8),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    color: Colors.white,
-                  ),
-                  child: Column(
-                    children: [
-                      Text("To. 동그라미"),
-                      Text("생일추카추카츄"),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text("남은시간"),
-                          VerticalDivider(
-                            color: Colors.black,
-                            thickness: 1,
-                            width: 4,
-                          ),
-                          Text("참여인원")
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Image.asset(
-                'assets/bigvase.png',
-              )
-            ],
-          ),
-        ),
-      ],
+          Align(alignment: Alignment.centerRight, child: Text("익명으로 보내기 (위젯 미구현)")),
+          Padding(
+            padding: const EdgeInsets.only(top: 36),
+            child: ElevatedButton(
+              onPressed: () {},
+              child: Text('편지 보내기'),
+            ),
+          )
+        ]),
+      ),
     );
   }
 }

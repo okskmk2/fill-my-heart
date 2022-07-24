@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:thank_tree/common/styles.dart';
+import 'package:thank_tree/pages/leaf_form_lobby_page.dart';
 import 'package:thank_tree/pages/leaf_form_page.dart';
 import 'package:thank_tree/pages/post_office_page.dart';
 import 'package:thank_tree/pages/home_page.dart';
@@ -25,7 +26,7 @@ class _MainScreenState extends State<MainScreen> {
 
   final List<Widget> pages = <Widget>[
     HomePage(),
-    LeafFormPage(),
+    LeafFormLobbyPage(),
     MyPage(),
     PostOfficePage()
   ];

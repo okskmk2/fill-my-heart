@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:thank_tree/common/styles.dart';
 import 'package:thank_tree/services/auth_service.dart';
 
 /// 로그인 페이지
@@ -32,7 +33,11 @@ class _SignUpPageState extends State<SignUpPage> {
                 /// 현재 유저 로그인 상태
                 Text(
                   "회원가입",
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: CustomStyles.dBrownColor,
+                  ),
                 ),
                 SizedBox(height: 32),
                 Padding(
@@ -40,7 +45,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   child: Text(
                     '아이디',
                     style: TextStyle(
-                      color: Color(0xff747474),
+                      color: CustomStyles.dBrownColor,
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
                     ),
@@ -55,14 +60,14 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                 ),
                 SizedBox(
-                  height: 24,
+                  height: 48,
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 8),
                   child: Text(
                     '비밀번호',
                     style: TextStyle(
-                      color: Color(0xff747474),
+                      color: CustomStyles.dBrownColor,
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
                     ),
@@ -91,7 +96,27 @@ class _SignUpPageState extends State<SignUpPage> {
                     setState(() => passwordConfirmController.text);
                   },
                 ),
-                SizedBox(height: 32),
+                SizedBox(height: 48),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: Text(
+                    '닉네임',
+                    style: TextStyle(
+                      color: CustomStyles.dBrownColor,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+
+                /// 이메일
+                TextField(
+                  controller: emailController,
+                  decoration: InputDecoration(
+                    hintText: "닉네임를 입력해주세요",
+                  ),
+                ),
+                SizedBox(height: 80),
 
                 /// 회원가입 버튼
                 ElevatedButton(
