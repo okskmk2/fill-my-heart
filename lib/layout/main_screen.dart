@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:provider/provider.dart';
-import 'package:thank_tree/pages/history_page.dart';
+import 'package:thank_tree/common/styles.dart';
+import 'package:thank_tree/pages/leaf_form_page.dart';
+import 'package:thank_tree/pages/post_office_page.dart';
 import 'package:thank_tree/pages/home_page.dart';
 import 'package:thank_tree/pages/my_page.dart';
-import 'package:thank_tree/pages/friend_page.dart';
-import 'package:thank_tree/pages/send_page.dart';
-import 'package:thank_tree/services/auth_service.dart';
 
 class MainScreen extends StatefulWidget {
   final int selectedIndex;
@@ -25,31 +23,21 @@ class _MainScreenState extends State<MainScreen> {
     _selectedIndex = widget.selectedIndex;
   }
 
-  final List<Widget> _widgetOptions = <Widget>[
+  final List<Widget> pages = <Widget>[
     HomePage(),
-    HistoryPage(),
-    SendPage(),
-    FriendPage(),
-    MyPage()
+    LeafFormPage(),
+    MyPage(),
+    PostOfficePage()
   ];
 
   @override
   Widget build(BuildContext context) {
     Color inactiveColor = Color(0xffC0C3CA);
     return Scaffold(
-      floatingActionButtonLocation:
-          FloatingActionButtonLocation.miniCenterDocked,
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.black,
-        onPressed: () {
-          setState(() {
-            _selectedIndex = 2;
-          });
-        },
-        child: SvgPicture.asset('assets/icons/card_edit.svg'),
-      ),
       bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.black,
+        selectedFontSize: 10,        
+        unselectedFontSize: 10,
+        selectedItemColor: CustomStyles.primaryColor,
         unselectedItemColor: inactiveColor,
         type: BottomNavigationBarType.fixed,
         currentIndex: _selectedIndex,
@@ -68,45 +56,44 @@ class _MainScreenState extends State<MainScreen> {
             activeIcon: SvgPicture.asset('assets/icons/home.svg'),
           ),
           BottomNavigationBarItem(
-            label: '감사카드',
-            icon: SvgPicture.asset(
-              'assets/icons/card.svg',
-              color: inactiveColor,
-            ),
-            activeIcon: SvgPicture.asset(
-              'assets/icons/card.svg',
-              color: Colors.black,
-            ),
+            label: '감사카드 쓰기',
+            icon: Icon(Icons.edit),
+            // icon: SvgPicture.asset(
+            //   'assets/icons/my.svg',
+            //   color: inactiveColor,
+            // ),
+            // activeIcon: SvgPicture.asset(
+            //   'assets/icons/my.svg',
+            //   color: Colors.black,
+            // ),
           ),
           BottomNavigationBarItem(
-            label: '감사카드 작성',
-            icon: SvgPicture.asset('assets/icons/card_edit.svg'),
+            label: '화분 보관함',
+            icon: Icon(Icons.local_florist),
+            // icon: SvgPicture.asset(
+            //   'assets/icons/my.svg',
+            //   color: inactiveColor,
+            // ),
+            // activeIcon: SvgPicture.asset(
+            //   'assets/icons/my.svg',
+            //   color: Colors.black,
+            // ),
           ),
           BottomNavigationBarItem(
-            label: '내 친구들',
-            icon: SvgPicture.asset(
-              'assets/icons/myfriend.svg',
-              color: inactiveColor,
-            ),
-            activeIcon: SvgPicture.asset(
-              'assets/icons/myfriend.svg',
-              color: Colors.black,
-            ),
-          ),
-          BottomNavigationBarItem(
-            label: 'MY',
-            icon: SvgPicture.asset(
-              'assets/icons/my.svg',
-              color: inactiveColor,
-            ),
-            activeIcon: SvgPicture.asset(
-              'assets/icons/my.svg',
-              color: Colors.black,
-            ),
+            label: '화분 우체국',
+            icon: Icon(Icons.local_post_office),
+            // icon: SvgPicture.asset(
+            //   'assets/icons/card.svg',
+            //   color: inactiveColor,
+            // ),
+            // activeIcon: SvgPicture.asset(
+            //   'assets/icons/card.svg',
+            //   color: Colors.black,
+            // ),
           ),
         ],
       ),
-      body: SafeArea(child: _widgetOptions.elementAt(_selectedIndex)),
+      body: SafeArea(child: pages.elementAt(_selectedIndex)),
     );
   }
 }

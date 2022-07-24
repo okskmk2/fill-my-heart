@@ -72,6 +72,7 @@ class _InputPeopleState extends State<InputPeople> {
                 ),
 
                 RadioListTile(
+                  activeColor: Colors.white,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
                   tileColor: Colors.white,
@@ -93,6 +94,7 @@ class _InputPeopleState extends State<InputPeople> {
                 ),
 
                 RadioListTile(
+                  activeColor: Colors.white,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
                   tileColor: Colors.white,
@@ -114,6 +116,7 @@ class _InputPeopleState extends State<InputPeople> {
                 ),
 
                 RadioListTile(
+                  activeColor: Colors.white,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
                   tileColor: Colors.white,
@@ -135,6 +138,7 @@ class _InputPeopleState extends State<InputPeople> {
                 ),
 
                 RadioListTile(
+                  activeColor: Colors.white,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
                   tileColor: Colors.white,

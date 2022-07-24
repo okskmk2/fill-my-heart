@@ -1,14 +1,10 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:thank_tree/common/styles.dart';
 import 'package:thank_tree/layout/main_screen.dart';
-import 'package:thank_tree/pages/login_page.dart';
 import 'package:thank_tree/pages/start_page.dart';
 import 'package:thank_tree/services/auth_service.dart';
-import 'package:date_time_picker/date_time_picker.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

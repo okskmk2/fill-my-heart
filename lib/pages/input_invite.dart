@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:thank_tree/layout/main_screen.dart';
 import 'package:thank_tree/pages/history_page.dart';
 import 'package:thank_tree/pages/input_create.dart';
+import 'package:thank_tree/pages/leaf_form_page.dart';
 import 'package:thank_tree/pages/send_finish.dart';
 import 'package:thank_tree/pages/send_page.dart';
 
@@ -109,9 +110,9 @@ class _InputInviteState extends State<InputInvite> {
                 margin: EdgeInsets.only(left: 0, right: 0),
                 child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
+                      Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) => SendPage()),
+                        MaterialPageRoute(builder: (context) => MainScreen(selectedIndex: 1,)),
                       );
                     },
                     child: Text("감사카드 쓰기")),

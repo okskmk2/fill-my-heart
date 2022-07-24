@@ -27,9 +27,7 @@ class _InputRPnameState extends State<InputRPname> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Text Input Placeholder Tutorial'),
-      ),
+      appBar: AppBar(),
       body: Padding(
         padding: const EdgeInsets.all(30.0),
         child: Column(

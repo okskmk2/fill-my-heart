@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 
 class CustomStyles {
   static Color primaryColor = Color(0xff2C8464);
+  static Color backgroundColor = Color(0xffFAF5EA);
   static Color diabledColor = Color(0xffA9DCC9);
+  static Color textColor = Color(0xff1F1E1C);
+  static Color inputLineColor = Color(0xff6A6253);
+  static Color dBrownColor = Color(0xff36332E);
   static ButtonStyle smallButtonStyle = ButtonStyle(
     padding: MaterialStateProperty.all(
       EdgeInsets.symmetric(vertical: 10, horizontal: 16),
@@ -96,7 +100,7 @@ class CustomStyles {
     ),
     appBarTheme: AppBarTheme(
       elevation: 0,
-      color: Colors.white,
+      color: Colors.transparent,
       iconTheme: IconThemeData(color: Colors.black),
     ),
   );
