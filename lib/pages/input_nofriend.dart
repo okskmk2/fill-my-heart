@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:thank_tree/pages/input_rpname.dart';
-import 'package:thank_tree/pages/send_finish.dart';
+
 
 class FriendPage extends StatelessWidget {
   // constructor

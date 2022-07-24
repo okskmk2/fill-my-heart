@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:thank_tree/layout/main_screen.dart';
-import 'package:thank_tree/pages/history_page.dart';
-import 'package:thank_tree/pages/input_create.dart';
-import 'package:thank_tree/pages/leaf_form_page.dart';
-import 'package:thank_tree/pages/send_finish.dart';
-import 'package:thank_tree/pages/send_page.dart';
 
 class InputInvite extends StatefulWidget {
+  const InputInvite({Key? key}) : super(key: key);
+
   @override
-  _InputInviteState createState() => _InputInviteState();
+  InputInviteState createState() => InputInviteState();
 }
 
 // Define a corresponding State class.
 // This class holds the data related to the Form.
-class _InputInviteState extends State<InputInvite> {
+class InputInviteState extends State<InputInvite> {
   // Create a text controller and use it to retrieve the current value
   // of the TextField.
   final myController = TextEditingController();
@@ -64,7 +61,10 @@ class _InputInviteState extends State<InputInvite> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => SendPage()),
+                        MaterialPageRoute(
+                            builder: (context) => MainScreen(
+                                  selectedIndex: 1,
+                                )),
                       );
                     },
                     child: Text("카카오톡 공유하기")),
@@ -84,7 +84,9 @@ class _InputInviteState extends State<InputInvite> {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => SendPage()),
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    MainScreen(selectedIndex: 1)),
                           );
                         },
                       ),
@@ -112,7 +114,8 @@ class _InputInviteState extends State<InputInvite> {
                     onPressed: () {
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) => MainScreen(selectedIndex: 1,)),
+                        MaterialPageRoute(
+                            builder: (context) => MainScreen(selectedIndex: 1)),
                       );
                     },
                     child: Text("감사카드 쓰기")),

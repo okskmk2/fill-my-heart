@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:thank_tree/layout/main_screen.dart';
-import 'package:thank_tree/pages/history_page.dart';
 import 'package:thank_tree/pages/input_invite.dart';
-import 'package:thank_tree/pages/input_time.dart';
-import 'package:thank_tree/pages/send_finish.dart';
-import 'package:thank_tree/pages/send_page.dart';
 
-class Inputcreate extends StatefulWidget {
+class InputCreate extends StatefulWidget {
+  const InputCreate({Key? key}) : super(key: key);
+
   @override
-  _InputcreateState createState() => _InputcreateState();
+  InputCreateState createState() => InputCreateState();
 }
 
 // Define a corresponding State class.
 // This class holds the data related to the Form.
-class _InputcreateState extends State<Inputcreate> {
+class InputCreateState extends State<InputCreate> {
   // Create a text controller and use it to retrieve the current value
   // of the TextField.
   final myController = TextEditingController();

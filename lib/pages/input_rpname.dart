@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:thank_tree/layout/main_screen.dart';
-import 'package:thank_tree/pages/history_page.dart';
-import 'package:thank_tree/pages/input_people.dart';
-import 'package:thank_tree/pages/input_time.dart';
-import 'package:thank_tree/pages/send_finish.dart';
+
+import 'input_time.dart';
 
 class InputRPname extends StatefulWidget {
+  const InputRPname({Key? key}) : super(key: key);
+
   @override
-  _InputRPnameState createState() => _InputRPnameState();
+  InputRPnameState createState() => InputRPnameState();
 }
 
 // Define a corresponding State class.
 // This class holds the data related to the Form.
-class _InputRPnameState extends State<InputRPname> {
+class InputRPnameState extends State<InputRPname> {
   // Create a text controller and use it to retrieve the current value
   // of the TextField.
   final myController = TextEditingController();
@@ -61,7 +60,7 @@ class _InputRPnameState extends State<InputRPname> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Inputtime()),
+                        MaterialPageRoute(builder: (context) => InputTime()),
                       );
                     },
                     child: Text("확인")),

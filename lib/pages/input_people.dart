@@ -1,21 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:thank_tree/layout/main_screen.dart';
-import 'package:thank_tree/pages/history_page.dart';
 import 'package:thank_tree/pages/input_create.dart';
-import 'package:thank_tree/pages/input_invite.dart';
-import 'package:thank_tree/pages/send_finish.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 class InputPeople extends StatefulWidget {
+  const InputPeople({Key? key}) : super(key: key);
+
   @override
-  _InputPeopleState createState() => _InputPeopleState();
+  InputPeopleState createState() => InputPeopleState();
 }
 
 String? member_count = '1';
 
 // Define a corresponding State class.
 // This class holds the data related to the Form.
-class _InputPeopleState extends State<InputPeople> {
+class InputPeopleState extends State<InputPeople> {
   // Create a text controller and use it to retrieve the current value
   // of the TextField.
   final myController = TextEditingController();
@@ -168,7 +165,7 @@ class _InputPeopleState extends State<InputPeople> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => Inputcreate()),
+                                builder: (context) => InputCreate()),
                           );
                         },
                         child: Text("다음")),

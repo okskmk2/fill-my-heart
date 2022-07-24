@@ -1,21 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:thank_tree/layout/main_screen.dart';
-import 'package:thank_tree/pages/history_page.dart';
 import 'package:thank_tree/pages/input_people.dart';
-import 'package:thank_tree/pages/send_finish.dart';
-import 'package:date_time_picker/date_time_picker.dart';
-import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 
-class Inputtime extends StatefulWidget {
+class InputTime extends StatefulWidget {
   @override
-  _InputtimeState createState() => _InputtimeState();
+  InputTimeState createState() => InputTimeState();
 }
 
 // Define a corresponding State class.
 // This class holds the data related to the Form.
-class _InputtimeState extends State<Inputtime> {
+class InputTimeState extends State<InputTime> {
   // Create a text controller and use it to retrieve the current value
   // of the TextField.
   final myController = TextEditingController();
@@ -30,9 +25,7 @@ class _InputtimeState extends State<Inputtime> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Text Input Placeholder Tutorial'),
-      ),
+      appBar: AppBar(),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
