@@ -13,16 +13,10 @@ class FriendPage extends StatelessWidget {
     // 데이터
     List<Map<String, dynamic>> dataList = [
       {
-        "category": "동그라미",
+        "category": "찾는 사람이 없나요?\n저희가 전달해드릴게요",
         "imgUrl":
-            "https://www.crushpixel.com/big-static19/preview4/pink-donut-icon-isometric-style-3400525.jpg",
-        "email": "abcd1234@naver.com"
-      },
-      {
-        "category": "잔망루피",
-        "imgUrl":
-            "https://www.crushpixel.com/big-static19/preview4/pink-donut-icon-isometric-style-3400525.jpg",
-        "email": "saad38@naver.com"
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Infobox_info_icon.svg/1024px-Infobox_info_icon.svg.png",
+        "email": ""
       },
     ];
 
@@ -76,11 +70,11 @@ class FriendPage extends StatelessWidget {
                     padding: EdgeInsets.all(24.0),
                     child: Column(
                       children: [
-                        // CircleAvatar(
-                        // backgroundColor: Color(0xffD9D9D9),
-                        //   backgroundImage: NetworkImage(imgUrl), //NetworkImage
-                        // radius: 30,
-                        // ), //CircleAvatar
+                        CircleAvatar(
+                          backgroundColor: Color(0xffD9D9D9),
+                          backgroundImage: NetworkImage(imgUrl), //NetworkImage
+                          radius: 30,
+                        ), //CircleAvatar
                         SizedBox(
                           height: 10,
                         ), //SizedBox
@@ -119,7 +113,10 @@ class FriendPage extends StatelessWidget {
                               padding: EdgeInsets.all(4),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                children: [Icon(Icons.touch_app), Text('선택')],
+                                children: [
+                                  Icon(Icons.touch_app),
+                                  Text('다음단계로')
+                                ],
                               ),
                             ),
                           ),
