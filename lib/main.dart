@@ -5,6 +5,7 @@ import 'package:thank_tree/common/styles.dart';
 import 'package:thank_tree/layout/main_screen.dart';
 import 'package:thank_tree/pages/start_page.dart';
 import 'package:thank_tree/services/auth_service.dart';
+import 'package:thank_tree/services/vase_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -12,6 +13,7 @@ void main() async {
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(create: (context) => AuthService()),
+      ChangeNotifierProvider(create: (context) => VaseService()),
     ],
     child: const MyApp(),
   ));

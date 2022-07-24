@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
-class MyPage extends StatelessWidget {
+class VaseListPage extends StatelessWidget {
   final vaseSize = 130.0;
   // constructor
-  const MyPage({Key? key}) : super(key: key);
+  const VaseListPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

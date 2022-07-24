@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:thank_tree/pages/input_rpname.dart';
+import 'package:thank_tree/pages/vase_form/input_rpname.dart';
 
 class VaseFormPage extends StatelessWidget {
   // constructor

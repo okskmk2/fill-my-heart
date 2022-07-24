@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:thank_tree/pages/input_create.dart';
+import 'package:thank_tree/pages/vase_form/input_create.dart';
 
 class InputPeople extends StatefulWidget {
   const InputPeople({Key? key}) : super(key: key);

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:thank_tree/pages/input_people.dart';
+import 'package:thank_tree/pages/vase_form/input_people.dart';
 import 'package:intl/intl.dart';
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 
 class InputTime extends StatefulWidget {
+  const InputTime({Key? key}) : super(key: key);
+
   @override
   InputTimeState createState() => InputTimeState();
 }
@@ -109,6 +111,7 @@ class BasicTimeField extends StatelessWidget {
   }
 }
 
+// refactor: 사용하지 않는 클래스
 class BasicDateTimeField extends StatelessWidget {
   final format = DateFormat("yyyy-MM-dd HH:mm");
   @override

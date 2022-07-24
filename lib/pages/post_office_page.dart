@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:thank_tree/common/styles.dart';
 import 'package:thank_tree/pages/vase_detail_page.dart';
-import 'package:thank_tree/pages/vase_form_page.dart';
+import 'package:thank_tree/pages/vase_form/vase_form_page.dart';
 
 class PostOfficePage extends StatefulWidget {
   const PostOfficePage({Key? key}) : super(key: key);
