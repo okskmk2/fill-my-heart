@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:thank_tree/pages/vase_form/input_people.dart';
 import 'package:intl/intl.dart';
-import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 
 class InputTime extends StatefulWidget {
   const InputTime({Key? key}) : super(key: key);
@@ -15,12 +15,17 @@ class InputTime extends StatefulWidget {
 class InputTimeState extends State<InputTime> {
   // Create a text controller and use it to retrieve the current value
   // of the TextField.
-  final myController = TextEditingController();
+  final format = DateFormat("yyyy-MM-dd");
+  final tiemformat = DateFormat("HH:mm");
+
+  final dateController = TextEditingController();
+  final timeController = TextEditingController();
 
   @override
   void dispose() {
     // Clean up the controller when the widget is disposed.
-    myController.dispose();
+    dateController.dispose();
+    timeController.dispose();
     super.dispose();
   }
 
@@ -41,12 +46,43 @@ class InputTimeState extends State<InputTime> {
               height: 36,
             ),
             Text('날짜 선택'),
-            BasicDateField(),
+            TextField(
+              controller: dateController,
+              onTap: () {
+                Future<DateTime?> datePicker = showDatePicker(
+                    context: context,
+                    firstDate: DateTime(1900),
+                    initialDate: dateController.text.isNotEmpty
+                        ? format.parse(dateController.text)
+                        : DateTime.now(),
+                    lastDate: DateTime(2100));
+                datePicker.then((value) {
+                  if (value != null) {
+                    setState(() {
+                      dateController.text = format.format(value);
+                    });
+                  }
+                });
+              },
+            ),
             SizedBox(
               height: 16,
             ),
             Text('시간 선택'),
-            BasicTimeField(),
+            TextField(
+              controller: timeController,
+              onTap: () {
+                Future<TimeOfDay?> timePicker = showTimePicker(
+                    context: context, initialTime: TimeOfDay.now());
+                timePicker.then((value) {
+                  if (value != null) {
+                    setState(() {
+                      timeController.text = value.to24hours();
+                    });
+                  }
+                });
+              },
+            ),
             SizedBox(
               height: 16,
             ),
@@ -72,72 +108,10 @@ class InputTimeState extends State<InputTime> {
   }
 }
 
-class BasicDateField extends StatelessWidget {
-  final format = DateFormat("yyyy-MM-dd");
-  @override
-  Widget build(BuildContext context) {
-    return Column(children: <Widget>[
-      // Text('날짜 선택'),
-      DateTimeField(
-        format: format,
-        onShowPicker: (context, currentValue) {
-          return showDatePicker(
-              context: context,
-              firstDate: DateTime(1900),
-              initialDate: currentValue ?? DateTime.now(),
-              lastDate: DateTime(2100));
-        },
-      ),
-    ]);
-  }
-}
-
-class BasicTimeField extends StatelessWidget {
-  final format = DateFormat("HH:mm");
-  @override
-  Widget build(BuildContext context) {
-    return Column(children: <Widget>[
-      DateTimeField(
-        format: format,
-        onShowPicker: (context, currentValue) async {
-          final time = await showTimePicker(
-            context: context,
-            initialTime: TimeOfDay.fromDateTime(currentValue ?? DateTime.now()),
-          );
-          return DateTimeField.convert(time);
-        },
-      ),
-    ]);
-  }
-}
-
-// refactor: 사용하지 않는 클래스
-class BasicDateTimeField extends StatelessWidget {
-  final format = DateFormat("yyyy-MM-dd HH:mm");
-  @override
-  Widget build(BuildContext context) {
-    return Column(children: <Widget>[
-      Text('Basic date & time field (${format.pattern})'),
-      DateTimeField(
-        format: format,
-        onShowPicker: (context, currentValue) async {
-          final date = await showDatePicker(
-              context: context,
-              firstDate: DateTime(1900),
-              initialDate: currentValue ?? DateTime.now(),
-              lastDate: DateTime(2100));
-          if (date != null) {
-            final time = await showTimePicker(
-              context: context,
-              initialTime:
-                  TimeOfDay.fromDateTime(currentValue ?? DateTime.now()),
-            );
-            return DateTimeField.combine(date, time);
-          } else {
-            return currentValue;
-          }
-        },
-      ),
-    ]);
+extension TimeOfDayConverter on TimeOfDay {
+  String to24hours() {
+    final hour = this.hour.toString().padLeft(2, "0");
+    final min = minute.toString().padLeft(2, "0");
+    return "$hour:$min";
   }
 }
