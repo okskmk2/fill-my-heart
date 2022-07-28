@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
       body: Column(
         children: [
           Expanded(
-            flex: 3,
+            flex: 2,
             child: Column(
               children: [
                 Container(
@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
-                Padding(
+                Container(
                   padding: const EdgeInsets.only(top: 20, left: 20),
                   child: Column(children: [
                     Row(
@@ -92,40 +92,52 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ]),
                 ),
-                Container(
-                  // padding: EdgeInsets.symmetric(horizontal: 100, vertical: 20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Image.asset(
-                        'assets/icons/vase1.png',
-                        height: 250,
-                        fit: BoxFit.cover,
-                      ),
-                    ],
-                  ),
-                ),
               ],
             ),
           ),
           Expanded(
-            flex: 2,
+            flex: 3,
+            child: Image.asset(
+              'assets/background.png',
+              fit: BoxFit.fill,
+            ),
+          ),
+          Expanded(
+            flex: 4,
             child: Container(
-                padding: EdgeInsets.all(20),
+                padding: EdgeInsets.all(30),
                 color: Color(0xffE9E1D3),
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: [0, 1, 2, 3, 4, 5]
                       .map(
                         (i) => Container(
-                          padding: EdgeInsets.all(8),
-                          height: 184,
+                          padding:
+                              EdgeInsets.only(left: 3, right: 3, bottom: 5),
+                          height: double.infinity,
                           child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(12),
+                            ),
                             padding: EdgeInsets.all(16),
-                            color: Colors.white,
+                            // color: Colors.white,
                             child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text("햇살님 항상 잘 챙겨주셔서 감사해요"),
+                                Expanded(
+                                  flex: 2,
+                                  child: Image.asset(
+                                    'assets/icons/leaf.png',
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 5,
+                                  child: Container(
+                                    padding: EdgeInsets.only(top: 10),
+                                    child: Text("햇살님 항상 잘 챙겨주셔서 감사해요"),
+                                  ),
+                                ),
                               ],
                             ),
                           ),
