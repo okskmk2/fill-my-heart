@@ -100,32 +100,32 @@ class _HomePageState extends State<HomePage> {
           //   ),
           // ),
           Expanded(
-            flex: 2,
+              flex: 2,
               child: Stack(
-            alignment: Alignment.bottomRight,
-            children: [
-              Positioned(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Container(
-                      height: 20,
-                      color: CustomStyles.backgroundColor,
+                alignment: Alignment.bottomRight,
+                children: [
+                  Positioned(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Container(
+                          height: 20,
+                          color: CustomStyles.backgroundColor,
+                        ),
+                        Container(
+                          height: 20,
+                          color: Color(0xffE9E1D3),
+                        ),
+                      ],
                     ),
-                    Container(
-                      height: 20,
-                      color: Color(0xffE9E1D3),
-                    ),
-                  ],
-                ),
-              ),
-              Image.asset(
-                'assets/bigvase.png',
-              )
-            ],
-          )),
+                  ),
+                  Image.asset(
+                    'assets/bigvase.png',
+                  )
+                ],
+              )),
           Expanded(
-            flex: 3,
+            flex: 2,
             child: Container(
               padding: EdgeInsets.all(30),
               color: Color(0xffE9E1D3),
@@ -141,7 +141,7 @@ class _HomePageState extends State<HomePage> {
                               'assets/component_card.png',
                             ),
                             Positioned(
-                              top: 80,
+                              top: 70,
                               left: 20,
                               right: 20,
                               child: Text(
