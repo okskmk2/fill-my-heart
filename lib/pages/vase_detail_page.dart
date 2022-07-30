@@ -40,10 +40,6 @@ class VaseDetailPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image.asset('assets/icons/vase1.png'),
-                SizedBox(
-                  height: 20,
-                ),
                 Text(
                   '생일추카추카츄',
                   style: TextStyle(
@@ -51,7 +47,6 @@ class VaseDetailPage extends StatelessWidget {
                       fontWeight: FontWeight.w700,
                       color: CustomStyles.textColor),
                 ),
-                Divider(thickness: 1),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text("2022.07.12~진행중",
@@ -59,6 +54,10 @@ class VaseDetailPage extends StatelessWidget {
                           fontWeight: FontWeight.w700,
                           fontSize: 16,
                           color: CustomStyles.dBrownColor)),
+                ),
+                Image.asset('assets/circlevase.png'),
+                SizedBox(
+                  height: 20,
                 ),
                 Container(
                     decoration: BoxDecoration(
@@ -71,7 +70,7 @@ class VaseDetailPage extends StatelessWidget {
                         horizontal: 12,
                       ),
                       child: Text(
-                        '맴버들 -> 동그라미',
+                        '햇살님에게 보낸 편지',
                         style: TextStyle(
                             fontWeight: FontWeight.w700,
                             color: CustomStyles.inputLineColor),
@@ -91,16 +90,69 @@ class VaseDetailPage extends StatelessWidget {
                     mainAxisSpacing: 10),
                 itemCount: 4,
                 itemBuilder: (context, index) => Container(
-                  height: 184,
-                  color: Colors.amber,
-                  child: Container(
-                    padding: EdgeInsets.all(16),
-                    color: Colors.white,
-                    child: Column(
-                      children: [
-                        Text("햇살님 항상 잘 챙겨주셔서 감사해요"),
-                      ],
-                    ),
+                  child: Column(
+                    children: [
+                      Stack(
+                        children: [
+                          Column(
+                            children: [
+                              Container(
+                                color: Color(0xffE9E1D3),
+                                height: 12,
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(12),
+                                    topRight: Radius.circular(12),
+                                  ),
+                                ),
+                                padding: EdgeInsets.only(top: 9, right: 12),
+                                height: 48,
+                                child: Align(
+                                  alignment: Alignment.topRight,
+                                  child: Container(
+                                      padding: EdgeInsets.all(5),
+                                      decoration: BoxDecoration(
+                                        color: CustomStyles.inputLineColor,
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Text(
+                                        '나',
+                                        style: TextStyle(
+                                          fontSize: 10,
+                                          color: Colors.white,
+                                        ),
+                                      )),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Image.asset('assets/leaf.png', width: 60),
+                        ],
+                      ),
+                      Expanded(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(12),
+                              bottomRight: Radius.circular(12),
+                            ),
+                          ),
+                          padding: EdgeInsets.all(16),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text("햇살님 항상 잘 챙겨주셔서 감사해요"),
+                              Text("From. 잔망 루피"),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -110,7 +162,6 @@ class VaseDetailPage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          print("1");
           Navigator.push(
             context,
             MaterialPageRoute(
