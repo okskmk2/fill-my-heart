@@ -23,87 +23,109 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: Column(
         children: [
-          Expanded(
-            flex: 2,
-            child: Column(
-              children: [
-                Container(
-                  padding: EdgeInsets.only(top: 30, left: 20),
-                  width: double.infinity,
-                  height: 50,
-                  child: Text(
-                    '2022.07.12 ~ 진행중',
-                    style: TextStyle(
-                      color: CustomStyles.textColor,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
+          Column(
+            children: [
+              Container(
+                padding: EdgeInsets.only(top: 30, left: 20),
+                width: double.infinity,
+                height: 50,
+                child: Text(
+                  '2022.07.12 ~ 진행중',
+                  style: TextStyle(
+                    color: CustomStyles.textColor,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-                Container(
-                  padding: const EdgeInsets.only(top: 20, left: 20),
-                  child: Column(children: [
-                    Row(
-                      children: [
-                        Text(
-                          '동그라미',
-                          style: TextStyle(
-                              fontSize: 24,
-                              fontWeight: FontWeight.w800,
-                              color: CustomStyles.primaryColor),
-                        ),
-                        Text(
-                          '님의 감사나무',
-                          style: TextStyle(
+              ),
+              Container(
+                padding: const EdgeInsets.only(top: 20, left: 20),
+                child: Column(children: [
+                  Row(
+                    children: [
+                      Text(
+                        '동그라미',
+                        style: TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.w800,
-                          ),
-                        )
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        Row(
-                          children: [
-                            Text(
-                              '편지',
-                              style: TextStyle(
-                                fontSize: 24,
-                                fontWeight: FontWeight.w800,
-                              ),
-                            ),
-                            Text(
-                              '10',
-                              style: TextStyle(
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.w800,
-                                  color: CustomStyles.primaryColor),
-                            ),
-                            Text(
-                              '개',
-                              style: TextStyle(
-                                fontSize: 24,
-                                fontWeight: FontWeight.w800,
-                              ),
-                            ),
-                          ],
+                            color: CustomStyles.primaryColor),
+                      ),
+                      Text(
+                        '님의 감사나무',
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.w800,
                         ),
-                      ],
-                    ),
-                  ]),
-                ),
-              ],
-            ),
+                      )
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Row(
+                        children: [
+                          Text(
+                            '편지',
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.w800,
+                            ),
+                          ),
+                          Text(
+                            '10',
+                            style: TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.w800,
+                                color: CustomStyles.primaryColor),
+                          ),
+                          Text(
+                            '개',
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.w800,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ]),
+              ),
+            ],
           ),
+          // Expanded(
+          //   flex: 3,
+          //   child: Image.asset(
+          //     'assets/background.png',
+          //     fit: BoxFit.fill,
+          //   ),
+          // ),
+          Expanded(
+            flex: 2,
+              child: Stack(
+            alignment: Alignment.bottomRight,
+            children: [
+              Positioned(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Container(
+                      height: 20,
+                      color: CustomStyles.backgroundColor,
+                    ),
+                    Container(
+                      height: 20,
+                      color: Color(0xffE9E1D3),
+                    ),
+                  ],
+                ),
+              ),
+              Image.asset(
+                'assets/bigvase.png',
+              )
+            ],
+          )),
           Expanded(
             flex: 3,
-            child: Image.asset(
-              'assets/background.png',
-              fit: BoxFit.fill,
-            ),
-          ),
-          Expanded(
-            flex: 4,
             child: Container(
               padding: EdgeInsets.all(30),
               color: Color(0xffE9E1D3),
@@ -113,11 +135,21 @@ class _HomePageState extends State<HomePage> {
                     .map(
                       (i) => Container(
                         padding: EdgeInsets.only(left: 3, right: 3, bottom: 10),
-                        height: double.infinity,
-                        child: Image.asset(
-                          'assets/component_card.png',
-                          height: double.infinity,
-                          fit: BoxFit.fitHeight,
+                        child: Stack(
+                          children: [
+                            Image.asset(
+                              'assets/component_card.png',
+                            ),
+                            Positioned(
+                              top: 80,
+                              left: 20,
+                              right: 20,
+                              child: Text(
+                                "sdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddfsd",
+                                overflow: TextOverflow.clip,
+                              ),
+                            )
+                          ],
                         ),
                       ),
                     )
