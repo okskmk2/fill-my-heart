@@ -5,13 +5,23 @@ import 'package:thank_tree/services/auth_service.dart';
 
 /// 로그인 페이지
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  final String onSuccessCallbackRouteName;
+  const LoginPage({Key? key, this.onSuccessCallbackRouteName = ''})
+      : super(key: key);
 
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
+  String _onSuccessCallbackRouteName = '';
+
+  @override
+  void initState() {
+    super.initState();
+    _onSuccessCallbackRouteName = widget.onSuccessCallbackRouteName;
+  }
+
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
@@ -88,13 +98,19 @@ class _LoginPageState extends State<LoginPage> {
                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                           content: Text("로그인 성공"),
                         ));
-                        // HomePage로 이동
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  MainScreen(selectedIndex: 0)),
-                        );
+
+                        if (_onSuccessCallbackRouteName.isNotEmpty) {
+                          Navigator.pushReplacementNamed(
+                              context, _onSuccessCallbackRouteName);
+                        } else {
+                          // HomePage로 이동
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    MainScreen(selectedIndex: 0)),
+                          );
+                        }
                       },
                       onError: (errMsg) {
                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(

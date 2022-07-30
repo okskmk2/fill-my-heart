@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:thank_tree/common/styles.dart';
 import 'package:thank_tree/layout/main_screen.dart';
-import 'package:thank_tree/pages/leaf_form_page.dart';
 
 class VaseDetailPage extends StatelessWidget {
   const VaseDetailPage({Key? key}) : super(key: key);

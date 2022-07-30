@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:thank_tree/common/styles.dart';
-import 'package:thank_tree/pages/leaf_form_lobby_page.dart';
+import 'package:thank_tree/pages/leaf/leaf_form_lobby_page.dart';
 import 'package:thank_tree/pages/post_office_page.dart';
 import 'package:thank_tree/pages/home_page.dart';
 import 'package:thank_tree/pages/vase_list_page.dart';
@@ -35,7 +35,7 @@ class _MainScreenState extends State<MainScreen> {
     Color inactiveColor = Color(0xffC0C3CA);
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
-        selectedFontSize: 10,        
+        selectedFontSize: 10,
         unselectedFontSize: 10,
         selectedItemColor: CustomStyles.primaryColor,
         unselectedItemColor: inactiveColor,

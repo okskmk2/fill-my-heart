@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:thank_tree/common/styles.dart';
+import 'package:thank_tree/pages/leaf/leaf_form_final_page.dart';
 
 class LeafFormPage extends StatefulWidget {
   const LeafFormPage({Key? key}) : super(key: key);
@@ -110,7 +111,13 @@ class _LeafFormPageState extends State<LeafFormPage> {
             Padding(
               padding: const EdgeInsets.only(top: 36),
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => LeafFormFinalPage()),
+                  );
+                },
                 child: Text('편지 보내기'),
               ),
             )

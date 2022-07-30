@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:thank_tree/common/styles.dart';
-import 'package:thank_tree/pages/leaf_form_page.dart';
+import 'package:thank_tree/pages/login_page.dart';
 import 'package:thank_tree/pages/signup_page.dart';
 
 class LeafFormLobbyPage extends StatelessWidget {
@@ -69,6 +69,10 @@ class LeafFormLobbyPage extends StatelessWidget {
                     children: [
                       GestureDetector(
                         onTap: () {
+                          if (FirebaseAuth.instance.currentUser != null) {
+                            Navigator.pushNamed(context, '/leaf-form');
+                            return;
+                          }
                           showDialog(
                               context: context,
                               builder: (context) => AlertDialog(
@@ -85,6 +89,7 @@ class LeafFormLobbyPage extends StatelessWidget {
                                       ),
                                     ),
                                     actions: [
+                                      // 이미 회원이다. => 로그인 페이지
                                       ElevatedButton(
                                         style: ElevatedButton.styleFrom(
                                           primary: Colors.white,
@@ -99,7 +104,7 @@ class LeafFormLobbyPage extends StatelessWidget {
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    LeafFormPage()),
+                                                    LoginPage(onSuccessCallbackRouteName : '/leaf-form')),
                                           );
                                         },
                                         child: Text(
@@ -109,13 +114,14 @@ class LeafFormLobbyPage extends StatelessWidget {
                                           ),
                                         ),
                                       ),
+                                      // 회원이 아니다. => 회원가입 페이지
                                       ElevatedButton(
                                         onPressed: () {
                                           Navigator.pushReplacement(
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    SignUpPage()),
+                                                    SignUpPage(onSuccessCallbackRouteName : '/leaf-form')),
                                           );
                                         },
                                         child: Text('회원이 될래요.'),

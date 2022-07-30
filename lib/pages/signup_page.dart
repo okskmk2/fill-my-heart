@@ -5,13 +5,23 @@ import 'package:thank_tree/services/auth_service.dart';
 
 /// 로그인 페이지
 class SignUpPage extends StatefulWidget {
-  const SignUpPage({Key? key}) : super(key: key);
+  final String onSuccessCallbackRouteName;
+  const SignUpPage({Key? key, this.onSuccessCallbackRouteName = ''})
+      : super(key: key);
 
   @override
   State<SignUpPage> createState() => _SignUpPageState();
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+  String _onSuccessCallbackRouteName = '';
+
+  @override
+  void initState() {
+    super.initState();
+    _onSuccessCallbackRouteName = widget.onSuccessCallbackRouteName;
+  }
+
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController passwordConfirmController = TextEditingController();
@@ -131,6 +141,9 @@ class _SignUpPageState extends State<SignUpPage> {
                                   .showSnackBar(SnackBar(
                                 content: Text("회원가입에 성공하였습니다."),
                               ));
+                              if (_onSuccessCallbackRouteName.isNotEmpty) {
+                                Navigator.pushReplacementNamed(context, _onSuccessCallbackRouteName);
+                              }
                             },
                             onError: (errMsg) {
                               ScaffoldMessenger.of(context)
