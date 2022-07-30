@@ -6,6 +6,7 @@ import 'package:thank_tree/layout/main_screen.dart';
 import 'package:thank_tree/pages/home_page.dart';
 import 'package:thank_tree/pages/leaf/leaf_form_page.dart';
 import 'package:thank_tree/pages/start_page.dart';
+import 'package:thank_tree/pages/vase_detail_page.dart';
 import 'package:thank_tree/services/auth_service.dart';
 import 'package:thank_tree/services/vase_service.dart';
 
@@ -30,7 +31,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         routes: {
           '/home' : (context) => HomePage(),
-          '/leaf-form' : (context) => LeafFormPage()
+          '/leaf-form' : (context) => LeafFormPage(),
+          '/vase-defail' : (context) => VaseDetailPage()
         },
         theme: CustomStyles.customTheme,
         debugShowCheckedModeBanner: false,
