@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:thank_tree/common/styles.dart';
+import 'package:thank_tree/layout/main_screen.dart';
+import 'package:thank_tree/pages/onboarding.dart';
 import 'package:thank_tree/services/auth_service.dart';
 
 /// 로그인 페이지
@@ -142,7 +146,33 @@ class _SignUpPageState extends State<SignUpPage> {
                                 content: Text("회원가입에 성공하였습니다."),
                               ));
                               if (_onSuccessCallbackRouteName.isNotEmpty) {
-                                Navigator.pushReplacementNamed(context, _onSuccessCallbackRouteName);
+                                Navigator.pushReplacementNamed(
+                                    context, _onSuccessCallbackRouteName);
+                              } else {
+                                SharedPreferences.getInstance()
+                                    .then((sharedPreferences) {
+                                  bool isOnboarded = sharedPreferences
+                                          .getBool("isOnboarded") ??
+                                      false;
+                                  // 이미 온보드 켰다면 스킵한다.
+                                  if (isOnboarded) {
+                                    Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => MainScreen(),
+                                      ),
+                                    );
+                                  }
+                                  // 온보드 킨 적이 없다면 온보드로 간다
+                                  else {
+                                    Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => OnbordingPage(),
+                                      ),
+                                    );
+                                  }
+                                });
                               }
                             },
                             onError: (errMsg) {

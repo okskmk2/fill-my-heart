@@ -30,9 +30,9 @@ class MyApp extends StatelessWidget {
     final user = context.read<AuthService>().currentUser();
     return MaterialApp(
         routes: {
-          '/home' : (context) => HomePage(),
-          '/leaf-form' : (context) => LeafFormPage(),
-          '/vase-defail' : (context) => VaseDetailPage()
+          '/home': (context) => HomePage(),
+          '/leaf-form': (context) => LeafFormPage(),
+          '/vase-detail': (context) => VaseDetailPage()
         },
         theme: CustomStyles.customTheme,
         debugShowCheckedModeBanner: false,

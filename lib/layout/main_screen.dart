@@ -53,7 +53,10 @@ class _MainScreenState extends State<MainScreen> {
               'assets/icons/home.svg',
               color: inactiveColor,
             ),
-            activeIcon: SvgPicture.asset('assets/icons/home.svg'),
+            activeIcon: SvgPicture.asset(
+              'assets/icons/home.svg',
+              color: CustomStyles.primaryColor,
+            ),
           ),
           BottomNavigationBarItem(
             label: '감사카드 쓰기',

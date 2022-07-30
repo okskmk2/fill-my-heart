@@ -13,7 +13,7 @@ class FriendPage extends StatelessWidget {
     // 데이터
     List<Map<String, dynamic>> dataList = [
       {
-        "category": "찾는 사람이 없나요?\n저희가 전달해드릴게요",
+        "category": "찾는 사람이 없나요?\n괜찮아요. 링크로 전달할 수 있어요",
         "imgUrl":
             "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Infobox_info_icon.svg/1024px-Infobox_info_icon.svg.png",
         "email": ""

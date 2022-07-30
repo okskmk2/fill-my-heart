@@ -8,6 +8,8 @@ class CustomStyles {
   static Color inputLineColor = Color(0xff6A6253);
   static Color dBrownColor = Color(0xff36332E);
   static Color grey2 = Color(0xff4B4E50);
+  static Color input = Color(0xffE9E1D3);
+  static Color light = Color(0xffDAD7D2);
   static ButtonStyle smallButtonStyle = ButtonStyle(
     padding: MaterialStateProperty.all(
       EdgeInsets.symmetric(vertical: 10, horizontal: 16),

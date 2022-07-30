@@ -1,5 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:thank_tree/common/styles.dart';
+import 'package:thank_tree/pages/signup_page.dart';
 import 'package:thank_tree/pages/vase_detail_page.dart';
 import 'package:thank_tree/pages/vase_form/vase_form_page.dart';
 
@@ -37,14 +40,14 @@ class _PostOfficePageState extends State<PostOfficePage>
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          backgroundColor: Color(0xffCDE3DB),
+          backgroundColor: CustomStyles.primaryColor,
         ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 24),
-              color: Color(0xffCDE3DB),
+              padding: const EdgeInsets.only(left: 24),
+              color: CustomStyles.primaryColor,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -54,7 +57,7 @@ class _PostOfficePageState extends State<PostOfficePage>
                       Text(
                         "화분 우체국",
                         style: TextStyle(
-                          color: CustomStyles.textColor,
+                          color: Colors.white,
                           fontSize: 24,
                           fontWeight: FontWeight.w900,
                         ),
@@ -65,7 +68,7 @@ class _PostOfficePageState extends State<PostOfficePage>
                       Text(
                         "화분은 작성된 잎편지들을\n모아서 전달하는 역할을 해요",
                         style: TextStyle(
-                          color: CustomStyles.grey2,
+                          color: CustomStyles.input,
                           fontSize: 14,
                           fontWeight: FontWeight.w700,
                         ),
@@ -75,6 +78,9 @@ class _PostOfficePageState extends State<PostOfficePage>
                       ),
                       ElevatedButton(
                         style: ButtonStyle(
+                          elevation: MaterialStateProperty.all(0),
+                          backgroundColor:
+                              MaterialStateProperty.all(CustomStyles.grey2),
                           padding:
                               MaterialStateProperty.all(EdgeInsets.symmetric(
                             vertical: 8,
@@ -100,6 +106,19 @@ class _PostOfficePageState extends State<PostOfficePage>
                           ),
                         ),
                       ),
+                      TextButton(
+                          onPressed: () {
+                            FirebaseAuth.instance.signOut().then((value) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => SignUpPage()),
+                              );
+                            });
+                          },
+                          child: Text(
+                            "로그아웃",
+                          )),
                       SizedBox(
                         height: 30,
                       ),
@@ -112,11 +131,12 @@ class _PostOfficePageState extends State<PostOfficePage>
                       Positioned(
                         // left: 0,
                         // bottom: 0,
-                        child: Image.asset('assets/화분3.png'),
+                        child: Image.asset('assets/분홍화분.png'),
                       ),
                       Positioned(
-                        // right: 0,
-                        child: Image.asset('assets/화분2.png'),
+                        // left: 10,
+                        right: 13,
+                        child: Image.asset('assets/노란화분.png'),
                       ),
                     ],
                   ),
@@ -168,11 +188,39 @@ class DoingTabView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-        separatorBuilder: (BuildContext context, int index) =>
-            Divider(thickness: 1),
-        itemCount: 9,
-        itemBuilder: vaseCard);
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(bottom: 12, top: 28),
+            child: Text(
+              "써야할 편지",
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w800,
+              ),
+            ),
+          ),
+          ...List.generate(8, (index) {
+            return vaseCard(context, index);
+          }),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 12, top: 28),
+            child: Text(
+              "이미 쓴 편지",
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w800,
+              ),
+            ),
+          ),
+          ...List.generate(8, (index) {
+            return vaseCard(context, index);
+          }),
+        ],
+      ),
+    );
   }
 }
 
@@ -197,8 +245,14 @@ Widget vaseCard(context, index) {
         MaterialPageRoute(builder: (context) => VaseDetailPage()),
       );
     },
-    child: SizedBox(
+    child: Container(
+      margin: EdgeInsets.only(bottom: 12),
       height: 116,
+      padding: EdgeInsets.only(left: 12, top: 10, bottom: 10),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.all(Radius.circular(12)),
+      ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -206,14 +260,14 @@ Widget vaseCard(context, index) {
             width: 90,
             decoration: BoxDecoration(
               border: Border.all(
-                width: 1,
-                color: Color(0xffE9E1D3),
+                width: 3,
+                color: Color(0xffDAD7D2),
               ),
               shape: BoxShape.circle,
-              color: Color(0x88EBDBB9),
+              color: Color(0xffFDFAF5),
             ),
             child: Padding(
-              padding: const EdgeInsets.all(20),
+              padding: const EdgeInsets.all(12),
               child: Image.asset('assets/icons/vase1.png'),
             ),
           ),
