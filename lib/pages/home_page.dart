@@ -105,68 +105,25 @@ class _HomePageState extends State<HomePage> {
           Expanded(
             flex: 4,
             child: Container(
-                padding: EdgeInsets.all(30),
-                color: Color(0xffE9E1D3),
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: [0, 1, 2, 3, 4, 5]
-                      .map(
-                        (i) => Container(
-                          padding:
-                              EdgeInsets.only(left: 3, right: 3, bottom: 5),
+              padding: EdgeInsets.all(30),
+              color: Color(0xffE9E1D3),
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [0, 1, 2, 3, 4, 5]
+                    .map(
+                      (i) => Container(
+                        padding: EdgeInsets.only(left: 3, right: 3, bottom: 10),
+                        height: double.infinity,
+                        child: Image.asset(
+                          'assets/component_card.png',
                           height: double.infinity,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            padding: EdgeInsets.all(16),
-                            // color: Colors.white,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Expanded(
-                                  flex: 2,
-                                  child: Image.asset(
-                                    'assets/icons/leaf.png',
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 5,
-                                  child: Container(
-                                    padding: EdgeInsets.only(top: 10),
-                                    child: Text("햇살님 항상 잘 챙겨주셔서 감사해요"),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
+                          fit: BoxFit.fitHeight,
                         ),
-                      )
-                      .toList(),
-                )
-
-                /*GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 10,
-                      mainAxisSpacing: 10),
-                  itemCount: 4,
-                  itemBuilder: (context, index) => Container(
-                    height: 184,
-                    color: Colors.amber,
-                    child: Container(
-                      padding: EdgeInsets.all(16),
-                      color: Colors.white,
-                      child: Column(
-                        children: [
-                          Text("햇살님 항상 잘 챙겨주셔서 감사해요"),
-                        ],
                       ),
-                    ),
-                  ),
-                ),*/
-                ),
+                    )
+                    .toList(),
+              ),
+            ),
           )
         ],
       ),
