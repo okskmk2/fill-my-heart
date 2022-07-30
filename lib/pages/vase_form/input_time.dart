@@ -90,13 +90,20 @@ class InputTimeState extends State<InputTime> {
                 );
                 timePicker.then((value) {
                   if (value != null) {
-                    setState(() {                      
+                    setState(() {
                       timeController.text = value.to24hours();
                     });
                   }
                 });
               },
             ),
+            Center(
+                child: Container(
+                    width: double.infinity,
+                    height: 50,
+                    color: Colors.grey,
+                    child: Text(
+                        '왜 마감시간을 설정해야하나요? 마감시간이 되면 자동으로 편지를 발송해드려요. 마감시간내에 편지 작성을 잊지마세요!'))),
             SizedBox(
               height: 16,
             ),
