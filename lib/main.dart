@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:thank_tree/common/styles.dart';
 import 'package:thank_tree/layout/main_screen.dart';
-import 'package:thank_tree/pages/Onboarding.dart';
-import 'package:thank_tree/pages/main_onbording.dart';
+import 'package:thank_tree/pages/onboarding.dart';
+
 import 'package:thank_tree/pages/start_page.dart';
 import 'package:thank_tree/services/auth_service.dart';
 import 'package:thank_tree/services/vase_service.dart';

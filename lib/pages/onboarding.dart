@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:thank_tree/layout/main_screen.dart';
 import 'package:thank_tree/pages/content_model.dart';
-import 'package:thank_tree/pages/vase_form/input_create.dart';
 
 class Onbording extends StatefulWidget {
   @override
@@ -28,7 +28,15 @@ class _OnbordingState extends State<Onbording> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        iconTheme: IconThemeData(
+          color: Colors.black, //색변경
+        ),
+        title: Text(""),
+        centerTitle: true,
+      ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Expanded(
             child: PageView.builder(
@@ -40,19 +48,23 @@ class _OnbordingState extends State<Onbording> {
                 });
               },
               itemBuilder: (_, i) {
-                return Padding(
+                return Container(
+                  margin:
+                      EdgeInsets.only(left: 24, right: 24, top: 38, bottom: 28),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                  ),
                   padding: const EdgeInsets.all(40),
                   child: Column(
                     children: [
-                      SvgPicture.asset(
-                        contents[i].image,
-                        height: 300,
-                      ),
+                      SizedBox(height: 20),
                       Text(
                         contents[i].title,
                         style: TextStyle(
-                          fontSize: 35,
+                          fontSize: 25,
                           fontWeight: FontWeight.bold,
+                          color: Color(0xff2C8464),
                         ),
                       ),
                       SizedBox(height: 20),
@@ -61,9 +73,14 @@ class _OnbordingState extends State<Onbording> {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 18,
-                          color: Colors.grey,
+                          color: Colors.black,
                         ),
-                      )
+                      ),
+                      SizedBox(height: 20),
+                      Image.asset(
+                        contents[i].image,
+                        height: 150,
+                      ),
                     ],
                   ),
                 );
@@ -80,8 +97,8 @@ class _OnbordingState extends State<Onbording> {
             ),
           ),
           Container(
-            height: 60,
-            margin: EdgeInsets.all(40),
+            //height: 56,
+            margin: EdgeInsets.only(left: 24, right: 24, top: 28, bottom: 58),
             width: double.infinity,
             child: ElevatedButton(
               onPressed: () {
@@ -89,7 +106,7 @@ class _OnbordingState extends State<Onbording> {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (_) => InputCreate(),
+                      builder: (_) => MainScreen(),
                     ),
                   );
                 }
@@ -98,13 +115,15 @@ class _OnbordingState extends State<Onbording> {
                   curve: Curves.bounceIn,
                 );
               },
-              child: Padding(
-                padding: EdgeInsets.all(4),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [Icon(Icons.touch_app), Text('다음단계로')],
-                ),
-              ),
+
+//               child: Padding(
+//                 padding: EdgeInsets.all(1),
+//                 child: Row(
+//                   mainAxisAlignment: MainAxisAlignment.center,
+//                   children: [Icon(Icons.touch_app), Text('시작하기')],
+//  ), ),
+
+              child: Text("시작하기"),
             ),
           ),
         ],
@@ -140,7 +159,7 @@ class _OnbordingState extends State<Onbording> {
       width: 10,
       margin: EdgeInsets.only(right: 5),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(10),
         color: currentIndex == index
             ? Theme.of(context).primaryColor
             : Colors.grey,
