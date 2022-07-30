@@ -34,24 +34,39 @@ class VaseListPage extends StatelessWidget {
                       Row(
                         children: [
                           Expanded(
-                            child: Image.asset(
-                              'assets/icons/vase1.png',
-                              height: vaseSize,
-                              fit: BoxFit.scaleDown,
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.pushNamed(context, '/vase-detail');
+                              },
+                              child: Image.asset(
+                                'assets/icons/vase1.png',
+                                height: vaseSize,
+                                fit: BoxFit.scaleDown,
+                              ),
                             ),
                           ),
                           Expanded(
-                            child: Image.asset(
-                              'assets/icons/vase2.png',
-                              height: vaseSize,
-                              fit: BoxFit.scaleDown,
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.pushNamed(context, '/vase-detail');
+                              },
+                              child: Image.asset(
+                                'assets/icons/vase2.png',
+                                height: vaseSize,
+                                fit: BoxFit.scaleDown,
+                              ),
                             ),
                           ),
                           Expanded(
-                            child: Image.asset(
-                              'assets/icons/vase1.png',
-                              height: vaseSize,
-                              fit: BoxFit.scaleDown,
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.pushNamed(context, '/vase-detail');
+                              },
+                              child: Image.asset(
+                                'assets/icons/vase1.png',
+                                height: vaseSize,
+                                fit: BoxFit.scaleDown,
+                              ),
                             ),
                           ),
                         ],
@@ -67,24 +82,39 @@ class VaseListPage extends StatelessWidget {
                       Row(
                         children: [
                           Expanded(
-                            child: Image.asset(
-                              'assets/icons/vase2.png',
-                              height: vaseSize,
-                              fit: BoxFit.scaleDown,
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.pushNamed(context, '/vase-detail');
+                              },
+                              child: Image.asset(
+                                'assets/icons/vase2.png',
+                                height: vaseSize,
+                                fit: BoxFit.scaleDown,
+                              ),
                             ),
                           ),
                           Expanded(
-                            child: Image.asset(
-                              'assets/icons/vase1.png',
-                              height: vaseSize,
-                              fit: BoxFit.scaleDown,
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.pushNamed(context, '/vase-detail');
+                              },
+                              child: Image.asset(
+                                'assets/icons/vase1.png',
+                                height: vaseSize,
+                                fit: BoxFit.scaleDown,
+                              ),
                             ),
                           ),
                           Expanded(
-                            child: Image.asset(
-                              'assets/icons/vase2.png',
-                              height: vaseSize,
-                              fit: BoxFit.scaleDown,
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.pushNamed(context, '/vase-detail');
+                              },
+                              child: Image.asset(
+                                'assets/icons/vase2.png',
+                                height: vaseSize,
+                                fit: BoxFit.scaleDown,
+                              ),
                             ),
                           ),
                         ],
@@ -101,24 +131,42 @@ class VaseListPage extends StatelessWidget {
                           Row(
                             children: [
                               Expanded(
-                                child: Image.asset(
-                                  'assets/icons/vase1.png',
-                                  height: vaseSize,
-                                  fit: BoxFit.scaleDown,
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.pushNamed(
+                                        context, '/vase-detail');
+                                  },
+                                  child: Image.asset(
+                                    'assets/icons/vase1.png',
+                                    height: vaseSize,
+                                    fit: BoxFit.scaleDown,
+                                  ),
                                 ),
                               ),
                               Expanded(
-                                child: Image.asset(
-                                  'assets/icons/vase2.png',
-                                  height: vaseSize,
-                                  fit: BoxFit.scaleDown,
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.pushNamed(
+                                        context, '/vase-detail');
+                                  },
+                                  child: Image.asset(
+                                    'assets/icons/vase2.png',
+                                    height: vaseSize,
+                                    fit: BoxFit.scaleDown,
+                                  ),
                                 ),
                               ),
                               Expanded(
-                                child: Image.asset(
-                                  'assets/icons/vase2.png',
-                                  height: vaseSize,
-                                  fit: BoxFit.scaleDown,
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.pushNamed(
+                                        context, '/vase-detail');
+                                  },
+                                  child: Image.asset(
+                                    'assets/icons/vase2.png',
+                                    height: vaseSize,
+                                    fit: BoxFit.scaleDown,
+                                  ),
                                 ),
                               ),
                             ],
