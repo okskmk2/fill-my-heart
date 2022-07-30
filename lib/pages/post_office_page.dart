@@ -43,83 +43,83 @@ class _PostOfficePageState extends State<PostOfficePage>
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Container(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
               color: Color(0xffCDE3DB),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      left: 24,
-                      right: 24,
-                      bottom: 64,
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "화분 우체국",
-                          style: TextStyle(
-                            color: CustomStyles.textColor,
-                            fontSize: 24,
-                            fontWeight: FontWeight.w900,
-                          ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "화분 우체국",
+                        style: TextStyle(
+                          color: CustomStyles.textColor,
+                          fontSize: 24,
+                          fontWeight: FontWeight.w900,
                         ),
-                        SizedBox(
-                          height: 2,
+                      ),
+                      SizedBox(
+                        height: 2,
+                      ),
+                      Text(
+                        "화분은 작성된 잎편지들을\n모아서 전달하는 역할을 해요",
+                        style: TextStyle(
+                          color: CustomStyles.grey2,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w700,
                         ),
-                        Text(
-                          "화분은 작성된 잎편지들을\n모아서 전달하는 역할을 해요",
-                          style: TextStyle(
-                            color: CustomStyles.grey2,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 16,
-                        ),
-                        ElevatedButton(
-                            style: ButtonStyle(
-                              padding: MaterialStateProperty.all(
-                                  EdgeInsets.symmetric(
-                                vertical: 8,
-                                horizontal: 10,
-                              )),
-                              shape: MaterialStateProperty.all(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(32.0),
-                                ),
-                              ),
+                      ),
+                      SizedBox(
+                        height: 16,
+                      ),
+                      ElevatedButton(
+                        style: ButtonStyle(
+                          padding:
+                              MaterialStateProperty.all(EdgeInsets.symmetric(
+                            vertical: 8,
+                            horizontal: 10,
+                          )),
+                          shape: MaterialStateProperty.all(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(32.0),
                             ),
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => VaseFormPage()),
-                              );
-                            },
-                            child: Text(
-                              "화분 만들기",
-                              style: TextStyle(
-                                fontWeight: FontWeight.w800,
-                              ),
-                            ))
-                      ],
-                    ),
+                          ),
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => VaseFormPage()),
+                          );
+                        },
+                        child: Text(
+                          "화분 만들기",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w800,
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 30,
+                      ),
+                    ],
                   ),
-                  Container(
-                    child: Stack(
-                      children: [
-                        Positioned(
-                          bottom: 0,
-                          child: Image.asset('assets/화분3.png'),
-                        ),
-                        Positioned(
-                          // right: 0,
-                          child: Image.asset('assets/화분2.png'),
-                        ),
-                      ],
-                    ),
-                  )
+                  Stack(
+                    clipBehavior: Clip.none,
+                    alignment: AlignmentDirectional.bottomEnd,
+                    children: [
+                      Positioned(
+                        // left: 0,
+                        // bottom: 0,
+                        child: Image.asset('assets/화분3.png'),
+                      ),
+                      Positioned(
+                        // right: 0,
+                        child: Image.asset('assets/화분2.png'),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
