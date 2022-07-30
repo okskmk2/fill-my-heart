@@ -9,30 +9,7 @@ class VaseDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          '편지 확인하기',
-          style: TextStyle(
-            color: CustomStyles.textColor,
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () {},
-            child: Text(
-              '보내기',
-              style: TextStyle(
-                color: CustomStyles.primaryColor,
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-        ],
-      ),
+      appBar: AppBar(),
       body: Column(
         children: [
           Container(
@@ -44,7 +21,7 @@ class VaseDetailPage extends StatelessWidget {
                   '생일추카추카츄',
                   style: TextStyle(
                       fontSize: 22,
-                      fontWeight: FontWeight.w700,
+                      fontWeight: FontWeight.w900,
                       color: CustomStyles.textColor),
                 ),
                 Padding(
@@ -52,8 +29,8 @@ class VaseDetailPage extends StatelessWidget {
                   child: Text("2022.07.12~진행중",
                       style: TextStyle(
                           fontWeight: FontWeight.w700,
-                          fontSize: 16,
-                          color: CustomStyles.dBrownColor)),
+                          fontSize: 14,
+                          color: CustomStyles.grey2)),
                 ),
                 Image.asset('assets/circlevase.png'),
                 SizedBox(
@@ -69,11 +46,22 @@ class VaseDetailPage extends StatelessWidget {
                         vertical: 4,
                         horizontal: 12,
                       ),
-                      child: Text(
-                        '햇살님에게 보낸 편지',
-                        style: TextStyle(
-                            fontWeight: FontWeight.w700,
-                            color: CustomStyles.inputLineColor),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            '햇살님',
+                            style: TextStyle(
+                                fontWeight: FontWeight.w900,
+                                color: CustomStyles.inputLineColor),
+                          ),
+                          Text(
+                            '에게 보낸 편지',
+                            style: TextStyle(
+                                fontWeight: FontWeight.w700,
+                                color: CustomStyles.inputLineColor),
+                          ),
+                        ],
                       ),
                     ))
               ],
@@ -88,7 +76,7 @@ class VaseDetailPage extends StatelessWidget {
                     crossAxisCount: 2,
                     crossAxisSpacing: 10,
                     mainAxisSpacing: 10),
-                itemCount: 4,
+                itemCount: 20,
                 itemBuilder: (context, index) => Container(
                   child: Column(
                     children: [
