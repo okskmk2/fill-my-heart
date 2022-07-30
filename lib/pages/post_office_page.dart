@@ -37,97 +37,128 @@ class _PostOfficePageState extends State<PostOfficePage>
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          backgroundColor: CustomStyles.primaryColor,
+          backgroundColor: Color(0xffCDE3DB),
         ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Container(
-              color: CustomStyles.primaryColor,
-              child: Padding(
-                padding: const EdgeInsets.only(
-                  top: 15,
-                  left: 24,
-                  right: 24,
-                  bottom: 44,
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "화분 우체국",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 24,
-                        fontWeight: FontWeight.w600,
-                      ),
+              color: Color(0xffCDE3DB),
+              child: Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      left: 24,
+                      right: 24,
+                      bottom: 64,
                     ),
-                    SizedBox(
-                      height: 8,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "화분 우체국",
+                          style: TextStyle(
+                            color: CustomStyles.textColor,
+                            fontSize: 24,
+                            fontWeight: FontWeight.w900,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 2,
+                        ),
+                        Text(
+                          "화분은 작성된 잎편지들을\n모아서 전달하는 역할을 해요",
+                          style: TextStyle(
+                            color: CustomStyles.grey2,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 16,
+                        ),
+                        ElevatedButton(
+                            style: ButtonStyle(
+                              padding: MaterialStateProperty.all(
+                                  EdgeInsets.symmetric(
+                                vertical: 8,
+                                horizontal: 10,
+                              )),
+                              shape: MaterialStateProperty.all(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(32.0),
+                                ),
+                              ),
+                            ),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => VaseFormPage()),
+                              );
+                            },
+                            child: Text(
+                              "화분 만들기",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w800,
+                              ),
+                            ))
+                      ],
                     ),
-                    Text(
-                      "내가 현재 만들고 있는 화분과\n이전에 전달한 화분을 보여드려요",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 14,
-                      ),
+                  ),
+                  Container(
+                    child: Stack(
+                      children: [
+                        Positioned(
+                          bottom: 0,
+                          child: Image.asset('assets/화분3.png'),
+                        ),
+                        Positioned(
+                          // right: 0,
+                          child: Image.asset('assets/화분2.png'),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  )
+                ],
               ),
             ),
             Expanded(
               child: Container(
                 color: CustomStyles.primaryColor,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(20),
-                    topRight: Radius.circular(20),
-                  ),
-                  child: Container(
-                    color: CustomStyles.backgroundColor,
-                    child: Padding(
-                      padding: const EdgeInsets.all(24),
-                      child: Column(
-                        children: [
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: TabBar(
-                              isScrollable: true,
-                              controller: controller,
-                              tabs: [
-                                Tab(text: '진행 중 12'),
-                                Tab(text: "보내기 완료 10"),
-                              ],
-                            ),
+                child: Container(
+                  color: CustomStyles.backgroundColor,
+                  child: Padding(
+                    padding: const EdgeInsets.all(24),
+                    child: Column(
+                      children: [
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: TabBar(
+                            isScrollable: true,
+                            controller: controller,
+                            tabs: [
+                              Tab(text: '진행 중 12'),
+                              Tab(text: "보내기 완료 10"),
+                            ],
                           ),
-                          Expanded(
-                            child: TabBarView(
-                              controller: controller,
-                              children: [
-                                DoingTabView(),
-                                DoneTabView(),
-                              ],
-                            ),
+                        ),
+                        Expanded(
+                          child: TabBarView(
+                            controller: controller,
+                            children: [
+                              DoingTabView(),
+                              DoneTabView(),
+                            ],
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
               ),
             ),
           ],
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => VaseFormPage()),
-            );
-          },
-          backgroundColor: Colors.black,
-          child: Icon(Icons.add),
         ),
       );
 }

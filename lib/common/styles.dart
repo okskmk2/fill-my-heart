@@ -7,6 +7,7 @@ class CustomStyles {
   static Color textColor = Color(0xff1F1E1C);
   static Color inputLineColor = Color(0xff6A6253);
   static Color dBrownColor = Color(0xff36332E);
+  static Color grey2 = Color(0xff4B4E50);
   static ButtonStyle smallButtonStyle = ButtonStyle(
     padding: MaterialStateProperty.all(
       EdgeInsets.symmetric(vertical: 10, horizontal: 16),
@@ -42,18 +43,12 @@ class CustomStyles {
       ),
     ),
     tabBarTheme: TabBarTheme(
-      indicator: BoxDecoration(
-        borderRadius: BorderRadius.circular(50),
-        color: CustomStyles.primaryColor,
-      ),
-      labelStyle: TextStyle(
-        fontSize: 16,
-        fontWeight: FontWeight.bold,
-      ),
-      unselectedLabelStyle: TextStyle(
-        fontSize: 16,
-        fontWeight: FontWeight.bold,
-      ),
+      indicator: UnderlineTabIndicator(
+          borderSide: BorderSide(width: 2.0, color: CustomStyles.primaryColor)),
+      labelColor: CustomStyles.primaryColor,
+      labelStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+      unselectedLabelStyle:
+          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
       unselectedLabelColor: Colors.grey,
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
