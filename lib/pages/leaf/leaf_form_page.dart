@@ -20,11 +20,25 @@ class _LeafFormPageState extends State<LeafFormPage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: Text(
-          '홍길동 님에게',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
+        title: RichText(
+          text: TextSpan(
+            style: TextStyle(
+              fontSize: 18,
+            ),
+            children: [
+              TextSpan(
+                  text: '홍길동',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w900,
+                    color: CustomStyles.primaryColor,
+                  )),
+              TextSpan(
+                  text: ' 님 에게',
+                  style: TextStyle(
+                    color: CustomStyles.textColor,
+                    fontWeight: FontWeight.bold,
+                  )),
+            ],
           ),
         ),
         centerTitle: true,
@@ -45,7 +59,7 @@ class _LeafFormPageState extends State<LeafFormPage> {
                       topRight: Radius.circular(12),
                     ),
                   ),
-                  height: 60,
+                  height: 36,
                 ),
                 Image.asset('assets/leaf.png')
               ],

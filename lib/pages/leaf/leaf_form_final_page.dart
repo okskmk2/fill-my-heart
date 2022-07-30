@@ -8,21 +8,39 @@ class LeafFormFinalPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(24.0),
           child: Column(
-        children: [
-          Text("홍길동닐에게\n전달될 편지가\n5번째로 채워졌어요!!"),
-          Image.asset('assets/bigvase.png'),
-          ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => MainScreen(selectedIndex: 0)),
-                );
-              },
-              child: Text("확인했어요"))
-        ],
-      )),
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(bottom: 8),
+                child: Text(
+                  textAlign: TextAlign.center,
+                  "홍길동닐에게\n전달될 편지가\n5번째로 채워졌어요!!",
+                  style: TextStyle(
+                      fontSize: 24, fontWeight: FontWeight.w800, height: 1.4),
+                ),
+              ),
+              Image.asset('assets/반짝이는화분.png'),
+              Padding(
+                padding: const EdgeInsets.only(top: 32),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => MainScreen(selectedIndex: 0)),
+                    );
+                  },
+                  child: Text("확인했어요"),
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
