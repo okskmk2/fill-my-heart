@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:thank_tree/pages/vase_form/input_rpname.dart';
+import 'package:thank_tree/pages/vase_form/vase_title_form.dart';
 
 
 class FriendPage extends StatelessWidget {

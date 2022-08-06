@@ -1,40 +1,64 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 
+class Vase {
+  late String title;
+  late String? authorId;
+  late String receiveUID;
+  late String dueDateTime;
+  late int maxMemberCount;
+  late String publicLinkUrl;
+}
+
 class VaseService extends ChangeNotifier {
-  late final String title;
-  late final String receiveUID;
-  late final String dueDateTime;
-  late final int maxMemberCount;
-  late final String publicLinkUrl;
+  late final Vase vase;
+
+  VaseService() {
+    vase = Vase();
+  }
+
   void setTitle(title) {
-    this.title = title;
+    vase.title = title;
   }
 
   void setReceiveUID(String receiveUID) {
-    this.receiveUID = receiveUID;
+    vase.receiveUID = receiveUID;
   }
 
   void setDueDateTime(String dueDateTime) {
     // datetimeformat e.g. 2022-02-03 21:11:21
-    this.dueDateTime = dueDateTime;
+    vase.dueDateTime = dueDateTime;
   }
 
   void setMaxMemberCount(int maxMemberCount) {
-    this.maxMemberCount = maxMemberCount;
+    vase.maxMemberCount = maxMemberCount;
   }
 
   void addVase() {
     FirebaseFirestore.instance.collection('vase').add({
-      'title': title,
-      'receiveUID': receiveUID,
-      'dueDateTime': dueDateTime,
-      'maxMemberCount': maxMemberCount
+      'title': vase.title,
+      'receiveUID': vase.receiveUID,
+      'dueDateTime': vase.dueDateTime,
+      'maxMemberCount': vase.maxMemberCount,
+      'authorId': FirebaseAuth.instance.currentUser?.email
+    }).then((res) {
+      print(res);
+      print("성공확인");
     });
   }
 
   void setPublicLinkUrl(String publicLinkUrl) {
-    this.publicLinkUrl = publicLinkUrl;
+    vase.publicLinkUrl = publicLinkUrl;
+  }
+
+  Future<List<Map<String, dynamic>>> getMyVase() async {
+    var querySnapshot = await FirebaseFirestore.instance
+        .collection('vase')
+        .where('authorId', isEqualTo: FirebaseAuth.instance.currentUser!.email)
+        .get();
+
+    return querySnapshot.docs.map((doc) => doc.data()).toList();
   }
 }

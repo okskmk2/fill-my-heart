@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:thank_tree/services/vase_service.dart';
 
 import 'input_time.dart';
 
@@ -58,6 +60,8 @@ class InputRPnameState extends State<InputRPname> {
                 margin: EdgeInsets.only(left: 0, right: 0),
                 child: ElevatedButton(
                     onPressed: () {
+                      Provider.of<VaseService>(context, listen: false)
+                          .setTitle(myController.text);
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => InputTime()),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:thank_tree/pages/vase_form/input_create.dart';
+import 'package:thank_tree/services/vase_service.dart';
 
 class InputPeople extends StatefulWidget {
   const InputPeople({Key? key}) : super(key: key);
@@ -162,6 +164,8 @@ class InputPeopleState extends State<InputPeople> {
                     margin: EdgeInsets.only(left: 0, right: 0),
                     child: ElevatedButton(
                         onPressed: () {
+                          Provider.of<VaseService>(context, listen: false).setMaxMemberCount(int.parse(member_count!));
+                          Provider.of<VaseService>(context, listen: false).addVase();
                           Navigator.push(
                             context,
                             MaterialPageRoute(

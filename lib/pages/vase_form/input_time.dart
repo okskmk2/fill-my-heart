@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'package:thank_tree/pages/vase_form/input_people.dart';
 import 'package:intl/intl.dart';
+import 'package:thank_tree/services/vase_service.dart';
 
 class InputTime extends StatefulWidget {
   const InputTime({Key? key}) : super(key: key);
@@ -31,6 +33,8 @@ class InputTimeState extends State<InputTime> {
 
   @override
   Widget build(BuildContext context) {
+    print(Provider.of<VaseService>(context).vase.title);
+    print(Provider.of<VaseService>(context).vase.receiveUID);
     return Scaffold(
       appBar: AppBar(),
       body: Padding(
@@ -114,6 +118,9 @@ class InputTimeState extends State<InputTime> {
                 margin: EdgeInsets.only(left: 0, right: 0),
                 child: ElevatedButton(
                   onPressed: () {
+                    String dueDateTime = '${dateController.text} ${timeController.text}';
+                    Provider.of<VaseService>(context, listen: false)
+                          .setDueDateTime(dueDateTime);
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => InputPeople()),

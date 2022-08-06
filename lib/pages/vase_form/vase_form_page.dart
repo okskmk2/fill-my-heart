@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:thank_tree/pages/vase_form/input_rpname.dart';
+import 'package:provider/provider.dart';
+import 'package:thank_tree/pages/vase_form/vase_title_form.dart';
+import 'package:thank_tree/services/vase_service.dart';
 
 class VaseFormPage extends StatelessWidget {
   // constructor
@@ -12,13 +14,13 @@ class VaseFormPage extends StatelessWidget {
     // 데이터
     List<Map<String, dynamic>> dataList = [
       {
-        "category": "동그라미",
+        "nickname": "동그라미",
         "imgUrl":
             "https://www.crushpixel.com/big-static19/preview4/pink-donut-icon-isometric-style-3400525.jpg",
         "email": "abcd1234@naver.com"
       },
       {
-        "category": "잔망루피",
+        "nickname": "잔망루피",
         "imgUrl":
             "https://www.crushpixel.com/big-static19/preview4/pink-donut-icon-isometric-style-3400525.jpg",
         "email": "saad38@naver.com"
@@ -67,7 +69,7 @@ class VaseFormPage extends StatelessWidget {
                 itemBuilder: (context, index) {
                   // dataList에서 index에 해당하는 data 꺼내기
                   Map<String, dynamic> data = dataList[index];
-                  String category = data["category"];
+                  String nickname = data["nickname"];
                   String imgUrl = data["imgUrl"];
                   String email = data["email"];
     
@@ -86,7 +88,7 @@ class VaseFormPage extends StatelessWidget {
                             height: 10,
                           ), //SizedBox
                           Text(
-                            category,
+                            nickname,
                             style: TextStyle(
                               fontSize: 20,
                               color: Color.fromARGB(255, 0, 0, 0),
@@ -110,6 +112,7 @@ class VaseFormPage extends StatelessWidget {
                             width: 300,
                             child: ElevatedButton(
                               onPressed: () {
+                                Provider.of<VaseService>(context, listen: false).setReceiveUID(nickname);
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
