@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:thank_tree/common/styles.dart';
+import 'package:thank_tree/pages/vase_form/vase_form_page.dart';
 
 import '../layout/main_screen.dart';
 
@@ -139,7 +140,14 @@ class _HomePageState extends State<HomePage> {
                             padding: EdgeInsets.only(left: 20),
                           ),
                           TextButton.icon(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => VaseFormPage(),
+                                ),
+                              );
+                            },
                             label: Text(
                               '화분 만들기',
                               style: TextStyle(color: Color(0xff6A6253)),
@@ -152,7 +160,16 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                           TextButton.icon(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (_) => MainScreen(
+                                    selectedIndex: 1,
+                                  ),
+                                ),
+                              );
+                            },
                             label: Text(
                               '감사카드 쓰기',
                               style: TextStyle(color: Color(0xff6A6253)),
