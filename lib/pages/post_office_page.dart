@@ -206,38 +206,23 @@ class DoingTabView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(bottom: 12, top: 28),
-            child: Text(
-              "써야할 편지",
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w800,
-              ),
-            ),
-          ),
-          ...List.generate(8, (index) {
-            return vaseCard(context, index);
-          }),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 12, top: 28),
-            child: Text(
-              "이미 쓴 편지",
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w800,
-              ),
-            ),
-          ),
-          ...List.generate(8, (index) {
-            return vaseCard(context, index);
-          }),
-        ],
-      ),
+    return FutureBuilder<QuerySnapshot>(
+      future: Provider.of<VaseService>(context).getMyVase(),
+      builder: (context, snapshot) {
+        final vases = snapshot.data?.docs ?? [];
+        if (vases.isEmpty) {
+          return Center(child: Text("작성 중인 화분이 없습니다."));
+        }
+        return ListView.separated(
+          separatorBuilder: (BuildContext context, int index) =>
+              Divider(thickness: 1),
+          itemCount: vases.length,
+          itemBuilder: (context, index) {
+            final vase = vases[index];
+            return vaseCard(context, index, vase);
+          },
+        );
+      },
     );
   }
 }
@@ -247,15 +232,34 @@ class DoneTabView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-        separatorBuilder: (BuildContext context, int index) =>
-            Divider(thickness: 1),
-        itemCount: 9,
-        itemBuilder: vaseCard);
+    return FutureBuilder<QuerySnapshot>(
+      future: Provider.of<VaseService>(context).getMyVase(),
+      builder: (context, snapshot) {
+        final vases = snapshot.data?.docs ?? [];
+        if (vases.isEmpty) {
+          return Center(child: Text("보낸 화분이 없습니다."));
+        }
+        return ListView.separated(
+            separatorBuilder: (BuildContext context, int index) =>
+                Divider(thickness: 1),
+            itemCount: vases.length,
+            itemBuilder: (context, index) {
+              final vase = vases[index];
+              return vaseCard(context, index, vase);
+            });
+      },
+    );
   }
 }
 
-Widget vaseCard(context, index) {
+Widget vaseCard(context, index, vase) {
+  var receiveUID = vase.get('receiveUID');
+  var dueDateTime = vase.get('dueDateTime');
+  var vaseStatus = vase.get('status');
+  final diffTime = DateTime.now().difference(DateTime.parse(dueDateTime));
+  final diffD = diffTime.inMinutes ~/ (60 * 24);
+  final diffH = diffTime.inMinutes ~/ 60;
+  final diffM = diffTime.inMinutes % 60;
   return GestureDetector(
     onTap: () {
       Navigator.push(
@@ -296,7 +300,7 @@ Widget vaseCard(context, index) {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "홍길동님에게 전달까지",
+                  "$receiveUID님에게 전달까지",
                   style: TextStyle(
                     color: Color(0xff36332E),
                     fontWeight: FontWeight.w700,
@@ -309,7 +313,7 @@ Widget vaseCard(context, index) {
                 Row(
                   children: [
                     Text(
-                      "7일 2시간 10분",
+                      "${diffD}일 ${diffH}시간 ${diffM}분",
                       style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w800,

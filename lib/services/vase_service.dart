@@ -42,7 +42,8 @@ class VaseService extends ChangeNotifier {
       'receiveUID': vase.receiveUID,
       'dueDateTime': vase.dueDateTime,
       'maxMemberCount': vase.maxMemberCount,
-      'authorId': FirebaseAuth.instance.currentUser?.email
+      'authorId': FirebaseAuth.instance.currentUser?.email,
+      'status': 'before-send'
     }).then((res) {
       print(res);
       print("성공확인");
@@ -53,12 +54,10 @@ class VaseService extends ChangeNotifier {
     vase.publicLinkUrl = publicLinkUrl;
   }
 
-  Future<List<Map<String, dynamic>>> getMyVase() async {
-    var querySnapshot = await FirebaseFirestore.instance
+  Future<QuerySnapshot<Map<String, dynamic>>> getMyVase() async {
+    return FirebaseFirestore.instance
         .collection('vase')
         .where('authorId', isEqualTo: FirebaseAuth.instance.currentUser!.email)
         .get();
-
-    return querySnapshot.docs.map((doc) => doc.data()).toList();
   }
 }
