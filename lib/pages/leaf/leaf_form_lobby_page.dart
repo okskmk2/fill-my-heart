@@ -121,14 +121,17 @@ class LeafFormLobbyPage extends StatelessWidget {
                             Positioned(
                               bottom: 339,
                               left: 49,
-                              child: Text("여기에\n감사카드를 써주세요!"),
+                              child: Text("여기에\n감사카드를 써주세요!", style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: CustomStyles.inputLineColor
+                              ),),
                             ),
                             Positioned(
                               bottom: 273,
                               left: 116,
                               child: Image.asset('assets/동글뱅이화살표.png'),
                             ),
-                            Positioned(
+                            Positioned( 
                               bottom: 207,
                               left: 113,
                               child: GestureDetector(

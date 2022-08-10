@@ -60,39 +60,29 @@ class _MainScreenState extends State<MainScreen> {
           ),
           BottomNavigationBarItem(
             label: '감사카드 쓰기',
-            icon: Icon(Icons.edit),
-            // icon: SvgPicture.asset(
-            //   'assets/icons/my.svg',
-            //   color: inactiveColor,
-            // ),
-            // activeIcon: SvgPicture.asset(
-            //   'assets/icons/my.svg',
-            //   color: Colors.black,
-            // ),
+            icon: SvgPicture.asset(
+              'assets/icons/감사카드쓰기아이콘.svg',
+              color: inactiveColor,
+            ),
+            activeIcon: SvgPicture.asset(
+              'assets/icons/감사카드쓰기아이콘.svg',
+              color: CustomStyles.primaryColor,
+            ),
           ),
           BottomNavigationBarItem(
             label: '화분 보관함',
-            icon: Icon(Icons.local_florist),
-            // icon: SvgPicture.asset(
-            //   'assets/icons/my.svg',
-            //   color: inactiveColor,
-            // ),
-            // activeIcon: SvgPicture.asset(
-            //   'assets/icons/my.svg',
-            //   color: Colors.black,
-            // ),
+            icon: SvgPicture.asset(
+              'assets/icons/화분보관함아이콘.svg',
+              color: inactiveColor,
+            ),
+            activeIcon: SvgPicture.asset(
+              'assets/icons/화분보관함아이콘.svg',
+              color: CustomStyles.primaryColor,
+            ),
           ),
           BottomNavigationBarItem(
             label: '화분 우체국',
             icon: Icon(Icons.local_post_office),
-            // icon: SvgPicture.asset(
-            //   'assets/icons/card.svg',
-            //   color: inactiveColor,
-            // ),
-            // activeIcon: SvgPicture.asset(
-            //   'assets/icons/card.svg',
-            //   color: Colors.black,
-            // ),
           ),
         ],
       ),
