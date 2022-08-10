@@ -8,7 +8,6 @@ class Vase {
   late String? authorId;
   late String receiveUID;
   late String dueDateTime;
-  late int maxMemberCount;
   late String publicLinkUrl;
   late String status;
 }
@@ -33,16 +32,11 @@ class VaseService extends ChangeNotifier {
     vase.dueDateTime = dueDateTime;
   }
 
-  void setMaxMemberCount(int maxMemberCount) {
-    vase.maxMemberCount = maxMemberCount;
-  }
-
   void addVase() {
     FirebaseFirestore.instance.collection('vase').add({
       'title': vase.title,
       'receiveUID': vase.receiveUID,
       'dueDateTime': vase.dueDateTime,
-      'maxMemberCount': vase.maxMemberCount,
       'authorId': FirebaseAuth.instance.currentUser?.email,
       'status': 'before-send'
     }).then((res) {

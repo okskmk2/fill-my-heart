@@ -32,6 +32,7 @@ class CustomStyles {
         color: Color(0xff000000),
         fontSize: 25,
         fontWeight: FontWeight.w900,
+        height: 1.5
       ),
       headline2: TextStyle(
         color: Color(0xff000000),
@@ -61,12 +62,12 @@ class CustomStyles {
         textStyle: MaterialStateProperty.resolveWith((states) {
           if (states.contains(MaterialState.disabled)) {
             return TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
+              fontWeight: FontWeight.w900,
+              fontSize: 20,
               color: Colors.white,
             );
           } else {
-            return TextStyle(fontWeight: FontWeight.bold, fontSize: 16);
+            return TextStyle(fontWeight: FontWeight.w900, fontSize: 20);
           }
         }),
         backgroundColor:

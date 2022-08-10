@@ -75,6 +75,7 @@ class _PostOfficePageState extends State<PostOfficePage>
                             color: Colors.white,
                             fontSize: 24,
                             fontWeight: FontWeight.w900,
+                            height: 1.4
                           ),
                         ),
                         SizedBox(
@@ -86,6 +87,7 @@ class _PostOfficePageState extends State<PostOfficePage>
                             color: CustomStyles.input,
                             fontSize: 14,
                             fontWeight: FontWeight.w700,
+                            height: 1.4
                           ),
                         ),
                         SizedBox(
@@ -99,7 +101,7 @@ class _PostOfficePageState extends State<PostOfficePage>
                             padding:
                                 MaterialStateProperty.all(EdgeInsets.symmetric(
                               vertical: 8,
-                              horizontal: 10,
+                              horizontal: 12,
                             )),
                             shape: MaterialStateProperty.all(
                               RoundedRectangleBorder(
@@ -117,7 +119,7 @@ class _PostOfficePageState extends State<PostOfficePage>
                           child: Text(
                             "화분 만들기",
                             style: TextStyle(
-                              fontWeight: FontWeight.w800,
+                              fontSize: 14,
                             ),
                           ),
                         ),
@@ -142,7 +144,7 @@ class _PostOfficePageState extends State<PostOfficePage>
                         //   child: Text(email),
                         // ),
                         SizedBox(
-                          height: 30,
+                          height: 23,
                         ),
                       ],
                     ),

@@ -35,7 +35,7 @@ class InputRPnameState extends State<InputRPname> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "롤링페이퍼 제목을\n지어주세요",
+              "감사화분 제목을\n지어주세요",
               style: Theme.of(context).textTheme.headline2,
             ),
             SizedBox(
