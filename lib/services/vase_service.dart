@@ -10,6 +10,7 @@ class Vase {
   late String dueDateTime;
   late int maxMemberCount;
   late String publicLinkUrl;
+  late String status;
 }
 
 class VaseService extends ChangeNotifier {

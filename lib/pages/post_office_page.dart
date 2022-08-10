@@ -59,101 +59,96 @@ class _PostOfficePageState extends State<PostOfficePage>
           Container(
             padding: const EdgeInsets.only(left: 24),
             color: CustomStyles.primaryColor,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                Stack(
+                  // clipBehavior: Clip.,
+                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      "화분 우체국",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 24,
-                        fontWeight: FontWeight.w900,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 2,
-                    ),
-                    Text(
-                      "화분은 작성된 잎편지들을\n모아서 전달하는 역할을 해요",
-                      style: TextStyle(
-                        color: CustomStyles.input,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 16,
-                    ),
-                    ElevatedButton(
-                      style: ButtonStyle(
-                        elevation: MaterialStateProperty.all(0),
-                        backgroundColor:
-                            MaterialStateProperty.all(CustomStyles.grey2),
-                        padding: MaterialStateProperty.all(EdgeInsets.symmetric(
-                          vertical: 8,
-                          horizontal: 10,
-                        )),
-                        shape: MaterialStateProperty.all(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(32.0),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "화분 우체국",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 24,
+                            fontWeight: FontWeight.w900,
                           ),
                         ),
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => VaseFormPage()),
-                        );
-                      },
-                      child: Text(
-                        "화분 만들기",
-                        style: TextStyle(
-                          fontWeight: FontWeight.w800,
+                        SizedBox(
+                          height: 2,
                         ),
-                      ),
+                        Text(
+                          "화분은 작성된 잎편지들을\n모아서 전달하는 역할을 해요",
+                          style: TextStyle(
+                            color: CustomStyles.input,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 16,
+                        ),
+                        ElevatedButton(
+                          style: ButtonStyle(
+                            elevation: MaterialStateProperty.all(0),
+                            backgroundColor:
+                                MaterialStateProperty.all(CustomStyles.grey2),
+                            padding:
+                                MaterialStateProperty.all(EdgeInsets.symmetric(
+                              vertical: 8,
+                              horizontal: 10,
+                            )),
+                            shape: MaterialStateProperty.all(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(32.0),
+                              ),
+                            ),
+                          ),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => VaseFormPage()),
+                            );
+                          },
+                          child: Text(
+                            "화분 만들기",
+                            style: TextStyle(
+                              fontWeight: FontWeight.w800,
+                            ),
+                          ),
+                        ),
+                        // TextButton(
+                        //   onPressed: () {
+                        //     FirebaseAuth.instance.signOut().then((value) {
+                        //       Navigator.push(
+                        //         context,
+                        //         MaterialPageRoute(
+                        //             builder: (context) => SignUpPage()),
+                        //       );
+                        //     });
+                        //   },
+                        //   child: Text(
+                        //     "로그아웃",
+                        //   ),
+                        // ),
+                        // TextButton(
+                        //   onPressed: () {
+                        //     print(FirebaseAuth.instance.currentUser?.email);
+                        //   },
+                        //   child: Text(email),
+                        // ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                      ],
                     ),
-                    TextButton(
-                      onPressed: () {
-                        FirebaseAuth.instance.signOut().then((value) {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => SignUpPage()),
-                          );
-                        });
-                      },
-                      child: Text(
-                        "로그아웃",
-                      ),
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        print(FirebaseAuth.instance.currentUser?.email);
-                      },
-                      child: Text(email),
-                    ),
-                    SizedBox(
-                      height: 30,
-                    ),
-                  ],
-                ),
-                Stack(
-                  clipBehavior: Clip.none,
-                  alignment: AlignmentDirectional.bottomEnd,
-                  children: [
                     Positioned(
-                      // left: 0,
-                      // bottom: 0,
-                      child: Image.asset('assets/분홍화분.png'),
-                    ),
-                    Positioned(
-                      // left: 10,
-                      right: 13,
-                      child: Image.asset('assets/노란화분.png'),
+                      right: 0,
+                      child: Image.asset('assets/화분보따리.png'),
                     ),
                   ],
                 ),

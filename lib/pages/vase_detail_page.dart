@@ -148,7 +148,13 @@ class VaseDetailPage extends StatelessWidget {
           )
         ],
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: Container(
+        width: double.infinity,
+        color: Colors.white,
+        padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+          child: ElevatedButton(
+        child: Text('12:20:12 보내기'),
         onPressed: () {
           Navigator.push(
             context,
@@ -156,9 +162,7 @@ class VaseDetailPage extends StatelessWidget {
                 builder: (context) => MainScreen(selectedIndex: 1)),
           );
         },
-        backgroundColor: Colors.black,
-        child: SvgPicture.asset('assets/icons/card_edit.svg'),
-      ),
+      )),
     );
   }
 }
