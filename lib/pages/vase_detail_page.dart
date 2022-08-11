@@ -150,19 +150,19 @@ class VaseDetailPage extends StatelessWidget {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: Container(
-        width: double.infinity,
-        color: Colors.white,
-        padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+          width: double.infinity,
+          color: Colors.white,
+          padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
           child: ElevatedButton(
-        child: Text('12:20:12 보내기'),
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => MainScreen(selectedIndex: 1)),
-          );
-        },
-      )),
+            child: Text('12:20:12 보내기'),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => MainScreen(selectedIndex: 1)),
+              );
+            },
+          )),
     );
   }
 }
