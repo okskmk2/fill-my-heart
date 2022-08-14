@@ -5,6 +5,7 @@ import HomePage from '../views/HomePage.vue'
 import SignUpPage from '../views/SignUpPage.vue'
 import SignInPage from '../views/SignInPage.vue'
 import OnBoarding from '../views/OnBoarding.vue'
+import VaseDetailPage from '../views/VaseDetailPage.vue'
 import LeafFormLobbyPage from '../views/leaf/LeafFormLobbyPage.vue'
 import VaseGardenPage from '../views/VaseGardenPage.vue'
 import VasePostOfficePage from '../views/VasePostOfficePage.vue'
@@ -28,6 +29,10 @@ const routes = [
   {
     path: '/onboarding',
     component: OnBoarding
+  },
+  {
+    path: '/vase/:id',
+    component: VaseDetailPage
   },
   {
     path: '',
