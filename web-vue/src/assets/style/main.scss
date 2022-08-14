@@ -1,0 +1,98 @@
+@import url(./font.scss);
+
+:root {
+    --bg: #FAF5EA;
+    --main: #2C8464;
+    --d-brown: #36332E;
+    --input_line: #6A6253;
+    --grey3: #707273;
+}
+
+html {
+    background-color: var(--bg);
+}
+
+body {
+    margin: 0;
+}
+
+body,
+button {
+    font-family: 'NanumSquareRound';
+}
+
+.bottom_action_group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+button {
+    box-sizing: border-box;
+    border-radius: 12px;
+    height: 56px;
+    font-size: 20px;
+
+    .small {
+        border-radius: 10px;
+    }
+}
+
+.primary_button {
+    background-color: var(--main);
+    border-width: 0;
+    color: white;
+}
+
+.second_button {
+    background-color: white;
+    border: 1px solid var(--d-brown);
+}
+
+.base_padding_x {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.input_line {
+    color: var(--input_line);
+}
+
+.d-brown {
+    color: var(--d-brown);
+}
+
+.grey3 {
+    color: var(--grey3);
+}
+
+// flex utils
+
+.row {
+    display: flex;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+}
+
+.ai-center {
+    align-items: center;
+}
+
+.jc-center {
+    justify-content: center;
+}
+
+.jc-between {
+    justify-content: space-between;
+}
+
+// 
+
+h1 {
+    color: var(--d-brown);
+    font-size: 24px;
+    font-weight: 800;
+}

@@ -223,7 +223,7 @@ class _HomePageState extends State<HomePage> {
                               left: 20,
                               right: 20,
                               child: Text(
-                                "sddddddddd ßddddddd dddddddddddd dddd ddddd dd d ddddd ddddddddd dddddd d dfsd",
+                                "동그라미님 감사합니다.",
                                 overflow: TextOverflow.clip,
                               ),
                             )
