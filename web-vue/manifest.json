@@ -2,8 +2,8 @@
     "theme_color": "#3eaf7c",
     "background_color": "#3eaf7c",
     "display": "standalone",
-    "scope": "/",
-    "start_url": "/",
+    "scope": "/thank-tree",
+    "start_url": "/thank-tree",
     "name": "프링",
     "short_name": "프링",
     "icons": [
