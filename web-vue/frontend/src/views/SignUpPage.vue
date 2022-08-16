@@ -15,7 +15,7 @@
         </div>
         <div class="input_group">
           <label for="user_nickname">닉네임</label>
-          <input type="text" id="user_nickname" placeholder="닉네임을 입력해주세요" v-model="name">
+          <input type="text" id="user_nickname" placeholder="닉네임을 입력해주세요" v-model="name" @keyup.enter="signUp">
         </div>
       </div>
       <div style="margin-top:80px">
@@ -42,9 +42,9 @@ export default {
         name: this.name,
         email: this.email,
         password: this.password
-      }).then(()=>{
+      }).then(() => {
         this.$router.push('/onboarding');
-      }).catch((error)=>{
+      }).catch((error) => {
         console.log(error);
       })
     }

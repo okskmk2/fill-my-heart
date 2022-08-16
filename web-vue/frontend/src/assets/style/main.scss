@@ -58,11 +58,19 @@ input,
     background-color: var(--main);
     border-width: 0;
     color: white;
+
+    &:disabled {
+        opacity: 0.4;
+    }
 }
 
 .second_button {
     background-color: white;
     border: 1px solid var(--d-brown);
+
+    &:disabled {
+        opacity: 0.4;
+    }
 }
 
 .none_style_button {
@@ -518,4 +526,16 @@ h1 {
     background-image: url(../images/icons/검색.svg);
     background-repeat: no-repeat;
     background-position: right;
+}
+
+.bottom_fab {
+    background-color: rgba($color: #fff, $alpha: .3);    
+    display: flex;
+    position: fixed;
+    padding: 30px 40px;
+    bottom: 0;
+    width: 100%;
+    max-width: var(--app-max-width);
+    z-index: 1000;
+    box-sizing: border-box;
 }

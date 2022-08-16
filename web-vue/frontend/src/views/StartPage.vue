@@ -18,3 +18,12 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  created() {
+    if (this.$store.state.currentUser !== null) {
+      this.$router.push('/home');
+    }
+  }
+}
+</script>

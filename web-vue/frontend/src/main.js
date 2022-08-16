@@ -20,6 +20,7 @@ firebase.initializeApp(firebaseConfig);
 
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
+    console.log("onAuthStateChanged");
     store.commit("setUser", user.toJSON());
   }
 });

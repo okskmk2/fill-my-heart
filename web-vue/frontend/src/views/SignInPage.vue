@@ -10,7 +10,7 @@
         </div>
         <div class="input_group">
           <label for="user_password">비밀번호</label>
-          <input type="password" id="user_password" placeholder="비밀번호를 입력해주세요" v-model="password" required>
+          <input type="password" id="user_password" placeholder="비밀번호를 입력해주세요" v-model="password" required @keyup.enter="signIn">
         </div>
       </div>
       <div style="margin-top:80px">

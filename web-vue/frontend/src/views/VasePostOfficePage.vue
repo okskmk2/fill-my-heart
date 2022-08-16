@@ -16,25 +16,25 @@
                     완료
                     10</button>
             </div>
-            <div class="container" style="padding-top:22px">
+            <div class="container" style="padding-top:22px;padding-bottom: 96px;">
                 <div v-if="selectedIndex === 0" class="post_office_vard_card_container">
                     <div v-for="vase in progressVases" class="post_office_vase_card"
                         @click="$router.push(`/vase/${vase.id}`)">
                         <div class="vase_card_circle">
-                            <img :src="vase.img_url" alt="">
+                            <img :src="vase.imgUrl" alt="">
                         </div>
-                        <div>{{ vase.to }}</div>
-                        <div>{{ vase.due_date }}</div>
+                        <div>{{ vase.toDisplayName }}</div>
+                        <div>{{ vase.dueDateTime }}</div>
                     </div>
                 </div>
                 <div v-if="selectedIndex === 1" class="post_office_vard_card_container">
                     <div v-for="vase in sentVases" class="post_office_vase_card"
                         @click="$router.push(`/vase/${vase.id}`)">
                         <div class="vase_card_circle">
-                            <img :src="vase.img_url" alt="">
+                            <img :src="vase.imgUrl" alt="">
                         </div>
-                        <div>{{ vase.to }}</div>
-                        <div>{{ vase.due_date }}</div>
+                        <div>{{ vase.toDisplayName }}</div>
+                        <div>{{ vase.dueDateTime }}</div>
                     </div>
                 </div>
             </div>
@@ -42,45 +42,37 @@
     </div>
 </template>
 <script>
+import firebase from 'firebase';
 export default {
     data() {
         return {
             selectedIndex: 0,
-            progressVases: [
-                {
-                    id: 1,
-                    img_url: '/img/화분1.png',
-                    to: '홍길동',
-                    due_date: '2022-10-10',
-                },
-                {
-                    id: 2,
-                    img_url: '/img/화분3.png',
-                    to: '홍길동',
-                    due_date: '2022-10-10',
-                },
-                {
-                    id: 3,
-                    img_url: '/img/화분1.png',
-                    to: '홍길동',
-                    due_date: '2022-10-10',
-                },
-                {
-                    id: 4,
-                    img_url: '/img/화분3.png',
-                    to: '홍길동',
-                    due_date: '2022-10-10',
-                }
-            ],
-            sentVases: [
-                {
-                    id: 5,
-                    img_url: '/img/화분2.png',
-                    to: '홍길동2',
-                    due_date: 'due_date',
-                }
-            ]
+            progressVases: [],
+            sentVases: []
         }
+    },
+    created() {
+        console.log(this.$store.state.currentUser.email);
+        firebase.firestore().collection('vase')
+            .where('fromEmail', '==', this.$store.state.currentUser.email)
+            .get().then(qs => {
+                qs.forEach((doc) => {
+                    let o = {};
+                    o['id'] = doc.id;
+                    o['fromEmail'] = doc.get('fromEmail');
+                    o['toEmail'] = doc.get('toEmail');
+                    o['toDisplayName'] = doc.get('toDisplayName');
+                    o['dueDateTime'] = doc.get('dueDateTime');
+                    o['status'] = doc.get('status');
+                    o['title'] = doc.get('title');
+                    o['imgUrl'] = doc.get('imgUrl');
+                    if (o['status'] == 'before-send') {
+                        this.progressVases.push(o);
+                    } else if (o['status'] == 'sent') {
+                        this.sentVases.push(o);
+                    }
+                });
+            });
     }
 }
 </script>

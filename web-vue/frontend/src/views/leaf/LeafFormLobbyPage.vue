@@ -20,7 +20,7 @@
                 <div>여기에<br />잎편지를 써주세요!</div>
                 <img src="/img/동글뱅이화살표.png" alt="">
                 <button class="none_style_button" @click="$router.push('/leaf-form')">
-                    <img src="/img/leaf/잎사귀.png" alt="" style="width:114px">
+                    <img src="/img/leaf/잎사귀0.png" alt="" style="width:114px">
                 </button>
                 <img src="/img/잎편지쓰기의화분.png" alt="">
             </div>

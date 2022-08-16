@@ -8,3 +8,13 @@ export function groupArr(data, n) {
     }
     return group;
 }
+
+export function randomNumber(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+export function getNow() {
+    return new Date(+new Date() + 3240 * 10000).toISOString().replace("T", " ").replace(/\..*/, '');
+}

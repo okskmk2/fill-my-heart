@@ -3,9 +3,11 @@
         <AppBar />
         <div class="container">
             <h1>누구에게 감사화분을<br />보낼까요?</h1>
-            <div class="input_group">
+            <div class="input_group rel">
                 <input type="text" id="user_id" placeholder="닉네임을 검색해주세요" v-model="searchName"
-                    @keydown.enter="searchUser" class="search_input">
+                    @keydown.enter="searchUser">
+                <button class="none_style_button abs" style="right:0;top:6px" @click="searchUser"><img
+                        src="@/assets/images/icons/검색.svg"></button>
             </div>
             <div style="margin-top:32px">
                 <div v-if="userList === null"></div>
@@ -19,8 +21,7 @@
                         <div>
                             받는 사람이 없나요?<br />괜찮아요. 링크로 전달할 수 있어요
                         </div>
-                        <button class="elevated_button primary_button" @click="$router.push('/vase-form-title')"
-                            style="margin-top:20px">다음
+                        <button class="elevated_button primary_button" @click="onNext()" style="margin-top:20px">다음
                             단계로</button>
                     </div>
                     <div v-else>
@@ -32,7 +33,7 @@
                                 {{ user.email }}
                             </div>
                             <button class="elevated_button primary_button" style="margin-top:16px"
-                                @click="$router.push('/vase-form-title')">선택</button>
+                                @click="onNext(user)">선택</button>
                         </div>
                     </div>
                 </div>
@@ -66,6 +67,11 @@ export default {
             }).catch((error) => {
                 console.log(error);
             });
+        },
+        onNext(user) {            
+            localStorage.setItem('vase_to_email', user?.email);
+            localStorage.setItem('vase_to_name', user?.displayName);
+            this.$router.push('/vase-form-title');
         }
     }
 }
