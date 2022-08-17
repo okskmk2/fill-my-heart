@@ -20,9 +20,6 @@ import VaseFormTitlePage from '../views/vase_form/VaseFormTitlePage.vue'
 import VaseFormDueDatePage from '../views/vase_form/VaseFormDueDatePage.vue'
 import VaseFormFinalAndInvitePage from '../views/vase_form/VaseFormFinalAndInvitePage.vue'
 
-import store from '../store'
-import firebase from 'firebase';
-
 
 Vue.use(VueRouter);
 
@@ -31,6 +28,7 @@ const routes = [
   {
     path: '/',
     component: StartPage,
+    alias: '/index.html'
   },
   {
     path: '/sign-up',
