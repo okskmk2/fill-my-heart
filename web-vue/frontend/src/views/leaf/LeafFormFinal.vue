@@ -2,7 +2,7 @@
     <div>
         <AppBar />
         <div class="container">
-            <h1>홍길동님에게~ 전달완료</h1>
+            <h1>{{ $store.state.leafToDisplayName }}님에게~ 전달완료</h1>
             <button @click="$router.push('/vase-post-office')" class="elevated_button primary_button">확인</button>
         </div>
     </div>

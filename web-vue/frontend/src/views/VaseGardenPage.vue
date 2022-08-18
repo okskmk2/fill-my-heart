@@ -5,75 +5,35 @@
         </h1>
         <div v-for="group in groupedVaseList" class="vase_group">
             <div v-for="vase in group" @click="$router.push(`/vase/${vase.id}`)">
-                <img :src="vase.img_url" alt="">
+                <img :src="vase.imgUrl" alt="">
             </div>
         </div>
     </div>
 </template>
 <script>
+import firebase from "firebase";
 import { groupArr } from "@/common/utils";
 export default {
     data() {
         return {
-            vaseList: [
-                {
-                    id: 1,
-                    img_url: '/img/화분1.png'
-                },
-                {
-                    id: 2,
-                    img_url: '/img/화분2.png'
-                },
-                {
-                    id: 3,
-                    img_url: '/img/화분3.png'
-                },
-                {
-                    id: 4,
-                    img_url: '/img/화분4.png'
-                },
-                {
-                    id: 5,
-                    img_url: '/img/화분5.png'
-                },
-                {
-                    id: 6,
-                    img_url: '/img/화분6.png'
-                },
-                {
-                    id: 7,
-                    img_url: '/img/화분7.png'
-                },
-                {
-                    id: 8,
-                    img_url: '/img/화분8.png'
-                },                {
-                    id: 4,
-                    img_url: '/img/화분4.png'
-                },
-                {
-                    id: 5,
-                    img_url: '/img/화분5.png'
-                },
-                {
-                    id: 6,
-                    img_url: '/img/화분6.png'
-                },
-                {
-                    id: 7,
-                    img_url: '/img/화분7.png'
-                },
-                {
-                    id: 8,
-                    img_url: '/img/화분8.png'
-                },
-            ]
+            vaseList: []
         }
     },
     computed: {
         groupedVaseList() {
             return groupArr(this.vaseList, 3);
         }
+    },
+    mounted() {
+        // 나에게 보낸 화분들
+        firebase.firestore().collection('vase').where('toEmail', '==', firebase.auth().currentUser.email).get().then((qs) => {
+            qs.forEach(doc => {
+                this.vaseList.push({
+                    id: doc.id,
+                    imgUrl: doc.get('imgUrl')
+                })
+            })
+        })
     }
 }
 </script>

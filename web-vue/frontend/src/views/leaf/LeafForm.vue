@@ -22,7 +22,7 @@ export default {
         }
     },
     methods: {
-        sendLeaf() {
+        async sendLeaf() {
             firebase.firestore().collection(`vase/${this.$route.params.id}/leaf`).doc().set({
                 fromDisplayName: this.$store.state.currentUser.displayName,
                 fromEmail: this.$store.state.currentUser.email,
@@ -30,6 +30,7 @@ export default {
                 sentAt: moment().format('YYYY-MM-DD HH:mm'),
                 imgUrl: `/img/leaf/잎사귀${randomNumber(0, 9)}.png`
             }).then(() => {
+                this.$store.commit('setLeafToDisplayName', this.vase.toDisplayName);
                 this.$router.push('/leaf-form-final');
             })
         }
@@ -40,6 +41,7 @@ export default {
             o['toDisplayName'] = doc.get('toDisplayName');
             this.vase = o;
         });
+        this.$store.commit('setLeafToDisplayName', "");
     }
 }
 </script>

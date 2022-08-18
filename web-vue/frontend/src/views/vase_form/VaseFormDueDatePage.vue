@@ -46,9 +46,11 @@ export default {
                 const fromDisplayName = this.$store.state.currentUser.displayName;
                 const status = 'before-send';
                 const imgUrl = `/img/화분${randomNumber(1, 8)}.png`;
+                const members = [{ email: fromEmail, displayName: fromDisplayName }];
+
                 const doc = firebase.firestore().collection('vase').doc();
                 doc.set({
-                    dueDateTime, title, toEmail, toDisplayName, fromEmail, fromDisplayName, status, imgUrl, createdAt
+                    dueDateTime, title, toEmail, toDisplayName, fromEmail, fromDisplayName, status, imgUrl, createdAt, members
                 }).then(() => {
                     localStorage.setItem('vase_id', doc.id);
                     this.$router.push('/vase-form-final-invite');

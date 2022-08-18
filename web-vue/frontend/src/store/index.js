@@ -11,12 +11,16 @@ export default new Vuex.Store({
     snackbarText: "",
     isSnackbarUp: false,
     currentUser: null,
+    leafToDisplayName: ""
   },
   getters: {
     group: state => ({ ...state.group }),
     department: state => ({ ...state.department })
   },
   mutations: {
+    setLeafToDisplayName(state, displayName) {
+      state.leafToDisplayName = displayName;
+    },
     setUser(state, user) {
       state.currentUser = user;
     },

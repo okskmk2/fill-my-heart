@@ -1,7 +1,7 @@
 <template>
     <div>
         <AppBar />
-        <div>
+        <div style="padding-bottom:100px">
             <div class="vase_detail_top">
                 <h1 style="text-align:center">{{ vase.title }}</h1>
                 <div>{{ vase.startDate }} ~ {{ vase.status }}</div>
@@ -46,8 +46,9 @@ export default {
             cardList: []
         }
     },
-    created() {
-        firebase.firestore().doc(`vase/${this.$route.params.id}`).get().then((doc) => {
+    mounted() {
+        const vaseDoc = firebase.firestore().doc(`vase/${this.$route.params.id}`);
+        vaseDoc.get().then((doc) => {
             const o = {};
             o['id'] = doc.id;
             o['title'] = doc.get('title');
@@ -59,6 +60,32 @@ export default {
             o['startDate'] = moment(moment(doc.get('createdAt'), 'YYYY-MM-DD HH:mm')).format('YYYY.MM.DD');
             o['status'] = doc.get('status') == 'before-send' ? '진행중' : '';
             this.vase = o;
+
+            console.log(this.vase);
+
+
+            let members = doc.get('members');
+            const email = this.$store.state.currentUser.email;
+            if (email) {
+                if (members instanceof Array) {
+                    console.log("맴버가 어레이다");
+                    if (!members.includes(email)) {
+                        console.log("내 이메일이 없다.", email, members);
+                        members.push(email);
+                        vaseDoc.update({
+                            members
+                        });
+                    }
+                }
+                else {
+                    console.log("맴버가 어레이가 아니라서 어레이로 만들었다.");
+                    members = [];
+                    members.push(email);
+                    vaseDoc.update({
+                        members
+                    });
+                }
+            }
         });
         firebase.firestore().collection(`vase/${this.$route.params.id}/leaf`).get().then(qs => {
             qs.forEach(doc => {
@@ -72,6 +99,11 @@ export default {
                 this.cardList.push(o);
             });
         });
+        firebase.firestore().collection('vase').where('members', 'in', ['a@a.com']).get().then((qs) => {
+            qs.forEach(doc => {
+                console.log(doc.id);
+            })
+        })
     }
 }
 </script>

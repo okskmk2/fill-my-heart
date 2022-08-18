@@ -23,8 +23,10 @@
                         <div class="vase_card_circle">
                             <img :src="vase.imgUrl" alt="">
                         </div>
-                        <div>{{ vase.toDisplayName }}</div>
-                        <div>{{ vase.dueDateTime }}</div>
+                        <div>
+                            <div>To. {{ vase.toDisplayName }}</div>
+                            <div>{{ vase.dueDateTime }}</div>
+                        </div>
                     </div>
                 </div>
                 <div v-if="selectedIndex === 1" class="post_office_vard_card_container">
@@ -33,8 +35,10 @@
                         <div class="vase_card_circle">
                             <img :src="vase.imgUrl" alt="">
                         </div>
-                        <div>{{ vase.toDisplayName }}</div>
-                        <div>{{ vase.dueDateTime }}</div>
+                        <div>
+                            <div>To. {{ vase.toDisplayName }}</div>
+                            <div>{{ vase.dueDateTime }}</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -51,28 +55,30 @@ export default {
             sentVases: []
         }
     },
-    created() {
-        console.log(this.$store.state.currentUser.email);
-        firebase.firestore().collection('vase')
-            .where('fromEmail', '==', this.$store.state.currentUser.email)
-            .get().then(qs => {
-                qs.forEach((doc) => {
-                    let o = {};
-                    o['id'] = doc.id;
-                    o['fromEmail'] = doc.get('fromEmail');
-                    o['toEmail'] = doc.get('toEmail');
-                    o['toDisplayName'] = doc.get('toDisplayName');
-                    o['dueDateTime'] = doc.get('dueDateTime');
-                    o['status'] = doc.get('status');
-                    o['title'] = doc.get('title');
-                    o['imgUrl'] = doc.get('imgUrl');
-                    if (o['status'] == 'before-send') {
-                        this.progressVases.push(o);
-                    } else if (o['status'] == 'sent') {
-                        this.sentVases.push(o);
-                    }
-                });
+    methods: {
+        async getVases() {
+            console.log(this.$store.state.currentUser.email);
+            const vases = await firebase.firestore().collection('vase').where('members', 'array-contains', this.$store.state.currentUser.email).get();
+            vases.forEach((doc) => {
+                let o = {};
+                o['id'] = doc.id;
+                o['fromEmail'] = doc.get('fromEmail');
+                o['toEmail'] = doc.get('toEmail');
+                o['toDisplayName'] = doc.get('toDisplayName');
+                o['dueDateTime'] = doc.get('dueDateTime');
+                o['status'] = doc.get('status');
+                o['title'] = doc.get('title');
+                o['imgUrl'] = doc.get('imgUrl');
+                if (o['status'] == 'before-send') {
+                    this.progressVases.push(o);
+                } else if (o['status'] == 'sent') {
+                    this.sentVases.push(o);
+                }
             });
+        }
+    },
+    created() {
+        this.getVases();
     }
 }
 </script>

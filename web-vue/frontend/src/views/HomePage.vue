@@ -17,7 +17,7 @@
               화분 만들기
               <img src="@/assets/images/icons/우측화살표.svg" alt="">
             </button>
-            <button class="home_top_button" style="margin-top:10px" @click="$router.push('/leaf-form-lobby')">
+            <button class="home_top_button" style="margin-top:2px" @click="$router.push('/leaf-form-lobby')">
               <div class="dot"></div>잎편지 쓰기
               <img src="@/assets/images/icons/우측화살표.svg" alt="" />
             </button>
@@ -64,7 +64,7 @@ export default {
       });
     }
   },
-  created() {
+  mounted() {
     if (this.$store.state.currentUser == null) {
       this.$router.push('/sign-in');
     }
