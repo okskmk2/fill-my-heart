@@ -465,6 +465,20 @@ h1 {
     border-radius: 12px;
     padding: 12px 10px;
 
+    &.im_sent {
+        .vase_card_circle {
+            filter: brightness(0.6) blur(1px);
+            border: 3px solid var(--main);
+            position: relative;
+
+            &::after {
+                position: absolute;
+                content: '작성완료';
+                z-index: 100;
+            }
+        }
+    }
+
     .vase_card_circle {
         background-color: var(--bg);
         border-radius: 50%;
