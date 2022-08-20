@@ -48,7 +48,8 @@ const routes = [
   },
   {
     path: '/vase-form-to',
-    component: VaseFormToPage
+    component: VaseFormToPage,
+    alias:'/vase-form'
   },
   {
     path: '/vase-form-title',

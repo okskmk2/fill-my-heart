@@ -22,9 +22,8 @@
                 </div>
             </div>
         </div>
-        <div class="bottom_fab">
-            <button class="elevated_button small primary_button"
-                @click="$router.push(`/leaf-form/${vase.id}`)">보내기</button>
+        <div class="bottom_fab" v-if="!isMine">
+            <button class="elevated_button small primary_button" @click="$router.push(`/leaf-form/${vase.id}`)">편지쓰기</button>
         </div>
     </div>
 </template>
@@ -43,18 +42,22 @@ export default {
                 owner: '햇살',
                 img_url: '/img/화분1.png'
             },
+            isMine: false,
             cardList: []
         }
     },
     mounted() {
+        const email = this.$store.state.currentUser.email;
         const vaseDoc = firebase.firestore().doc(`vase/${this.$route.params.id}`);
         vaseDoc.get().then((doc) => {
             const o = {};
+
             o['id'] = doc.id;
             o['title'] = doc.get('title');
             o['imgUrl'] = doc.get('imgUrl');
             o['fromEmail'] = doc.get('fromEmail');
             o['toEmail'] = doc.get('toEmail');
+            this.isMine = o['toEmail'] === email;
             o['toDisplayName'] = doc.get('toDisplayName');
             o['dueDateTime'] = doc.get('dueDateTime');
             o['startDate'] = moment(moment(doc.get('createdAt'), 'YYYY-MM-DD HH:mm')).format('YYYY.MM.DD');
@@ -65,7 +68,7 @@ export default {
 
 
             let members = doc.get('members');
-            const email = this.$store.state.currentUser.email;
+
             if (email) {
                 if (members instanceof Array) {
                     console.log("맴버가 어레이다");

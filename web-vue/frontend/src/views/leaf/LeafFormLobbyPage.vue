@@ -28,7 +28,10 @@
                 </div>
             </div>
         </div>
-        <div v-else>화분이 없습니다</div>
+        <div v-else class="container">
+            <div>화분이 없습니다.</div>
+            <router-link tag="button" to="/vase-form">화분 만들기</router-link>
+        </div>
     </div>
 </template>
 <script>
@@ -48,7 +51,9 @@ export default {
 
             for (let index = 0; index < myVaseList.length; index++) {
                 const vase = myVaseList[index];
-                console.log(vase.id);
+                if (vase.toEmail === email) {
+                    return;
+                }
                 // 내가 이미 쓴 잎사귀가 있다면 화분을 추가하지 않는다.
                 const leaves = (await firebase.firestore().collection(`vase/${vase.id}/leaf`).where('fromEmail', '==', email).get());
                 if (leaves.empty) {

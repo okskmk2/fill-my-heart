@@ -75,6 +75,9 @@ export default {
             const email = this.$store.state.currentUser.email
             const vases = await firebase.firestore().collection('vase').where('members', 'array-contains', email).get();
             vases.forEach(async (doc) => {
+                if (doc.get('toEmail') == email) {
+                    return;
+                }
                 let o = {};
                 o['id'] = doc.id;
                 o['fromEmail'] = doc.get('fromEmail');
